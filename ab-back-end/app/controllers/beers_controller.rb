@@ -1,6 +1,6 @@
 class BeersController < ApplicationController
   def create
-    beer = Beer.create(beers_params)
+    beer = Beer.create(beer_params)
     render json: beer
   end
 
@@ -12,7 +12,7 @@ class BeersController < ApplicationController
     render json: beers
   end
 
-  def beers_params
+  def beer_params
     params.require(:beer).permit(:brewery_name, :name, :beer_type, :abv)
   end
 end
