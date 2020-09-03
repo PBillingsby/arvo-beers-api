@@ -1,42 +1,42 @@
 import React, { Component } from "react";
-import Beer from "./Beer";
 export default class BeerForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      beer: "",
-      isSubmitted: false
+      beer: ""
     };
   }
-
   handleData = e => {
     e.preventDefault();
     let newBeer = {
       name: e.target.name.value,
       brewery_name: e.target.brewery_name.value,
-      type: e.target.beer_type.value,
+      beer_type: e.target.beer_type.value,
       abv: e.target.abv.value
     };
     this.setState({
-      beer: newBeer,
-      isSubmitted: true
+      beer: newBeer
     });
+
     fetch("http://localhost:3001/api/v1/beers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(this.state.newBeer)
-    }).then(resp => resp.json().then(beer => console.log(beer)));
+      body: JSON.stringify(newBeer)
+    }).then(resp => resp.json().then(beer => this.props.onSubmit));
   };
-
-  renderBeer() {
-    return <Beer newBeer={this.state.beer} />;
-  }
   render() {
+    debugger;
     return (
       <>
-        <form className="w-25 mx-auto" onSubmit={e => this.handleData(e)}>
+        <form
+          className="w-25 p-3 mx-auto border border-dark"
+          onSubmit={e => {
+            this.handleData(e);
+          }}
+        >
+          <h3>Add Beer</h3>
           <div className="form-group">
             <label>Brewery Name</label>
             <input
@@ -70,13 +70,13 @@ export default class BeerForm extends Component {
               type="number"
               className="form-control"
               name="abv"
+              min="0"
               step="0.1"
               placeholder="%"
             />
           </div>
           <input className="text-center" type="submit" />
         </form>
-        {this.state.isSubmitted && this.renderBeer()}
       </>
     );
   }
