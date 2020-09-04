@@ -8,7 +8,8 @@ export default class Beers extends Component {
     super();
     this.state = {
       beers: [],
-      distinctCountries: []
+      distinctCountries: [],
+      defaultOption: "Search by country"
     };
   }
 
@@ -32,14 +33,18 @@ export default class Beers extends Component {
   };
 
   setOptions() {
-    return [...new Set(this.state.beers.map(beer => beer.country))];
+    return [...new Set(this.state.beers.map(beer => beer.country))].map(
+      optionCountry => {
+        return <option defaultValue={optionCountry}>{optionCountry}</option>;
+      }
+    );
   }
   render() {
     return (
       <>
         <div className="row p-3">
-          <p>By country: </p>
-          <select onChange={() => this.listByCountry()}>
+          <select onChange={this.listByCountry}>
+            <option value={this.state.defaultOption} disabled />
             {this.state.beers.length > 0 && this.setOptions()}
           </select>
         </div>
