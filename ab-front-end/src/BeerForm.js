@@ -11,6 +11,7 @@ export default class BeerForm extends Component {
     let newBeer = {
       name: e.target.name.value,
       brewery_name: e.target.brewery_name.value,
+      country: e.target.country.value,
       beer_type: e.target.beer_type.value,
       abv: e.target.abv.value
     };
@@ -24,10 +25,10 @@ export default class BeerForm extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(newBeer)
-    }).then(resp => resp.json().then(beer => this.props.onSubmit));
+    }).then(resp => resp.json().then(beer => this.props.getBeers()));
   };
+
   render() {
-    debugger;
     return (
       <>
         <form
@@ -38,6 +39,15 @@ export default class BeerForm extends Component {
         >
           <h3>Add Beer</h3>
           <div className="form-group">
+            <label>Beer Name</label>
+            <input
+              type="text"
+              className="form-control"
+              name="name"
+              placeholder="Beer Name"
+            />
+          </div>
+          <div className="form-group">
             <label>Brewery Name</label>
             <input
               type="text"
@@ -47,12 +57,12 @@ export default class BeerForm extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Beer Name</label>
+            <label>Brewer Country</label>
             <input
               type="text"
               className="form-control"
-              name="name"
-              placeholder="Beer Name"
+              name="country"
+              placeholder="Brewer Country"
             />
           </div>
           <div className="form-group">

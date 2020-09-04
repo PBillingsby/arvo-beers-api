@@ -39,7 +39,7 @@ export default class Beers extends Component {
             <Beer key={beer.id} beer={beer} />
           ))}
         </div>
-        <BeerForm onSubmit={this.getBeers} />
+        <BeerForm getBeers={() => this.getBeers()} />
       </>
     );
   }
