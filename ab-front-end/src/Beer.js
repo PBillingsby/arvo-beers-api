@@ -4,7 +4,7 @@ const Beer = props => {
   const { id, name, brewery_name, country, beer_type } = props.beer;
   return (
     <div className="card m-2 w-25 text-center" key={id}>
-      <h1>{name}</h1>
+      <h3>{name}</h3>
       <p>{country}</p>
     </div>
   );

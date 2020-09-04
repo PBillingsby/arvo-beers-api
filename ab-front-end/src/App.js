@@ -10,10 +10,10 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <header className="jumbotron">
+        <header className="beer-background-header">
           <h1 className="text-center">Arvo Beers</h1>
         </header>
-        <div className="container">
+        <div className="p-3 container">
           <button onClick={() => this.listBeers()}>Lets Start</button>
           {this.state.isClicked ? <Beers /> : null}
         </div>

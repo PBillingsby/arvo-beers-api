@@ -34,7 +34,7 @@ export default class Beers extends Component {
             ))}
           </select>
         </div>
-        <div className="row">
+        <div className="row text-center">
           {this.state.beers.map(beer => (
             <Beer key={beer.id} beer={beer} />
           ))}
