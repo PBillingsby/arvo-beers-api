@@ -8,8 +8,7 @@ export default class Beers extends Component {
     super();
     this.state = {
       beers: [],
-      distinctCountries: [],
-      defaultOption: "Search by country"
+      selectedBeers: []
     };
   }
 
@@ -17,9 +16,13 @@ export default class Beers extends Component {
     this.getBeers();
   }
 
-  listByCountry() {
-    debugger;
-  }
+  listByCountry = e => {
+    this.setState({
+      selectedBeers: this.state.beers.filter(
+        beer => beer.country === e.target.value
+      )
+    });
+  };
 
   getBeers = () => {
     fetch("http://localhost:3001/api/v1/beers")
@@ -27,15 +30,19 @@ export default class Beers extends Component {
       .then(beer => {
         this.setState({
           beers: beer,
-          distinctCountries: []
+          selectedBeers: beer
         });
       });
   };
 
-  setOptions() {
+  setCountryOptions() {
     return [...new Set(this.state.beers.map(beer => beer.country))].map(
-      optionCountry => {
-        return <option defaultValue={optionCountry}>{optionCountry}</option>;
+      countryOption => {
+        return (
+          <option key={countryOption} defaultValue={countryOption}>
+            {countryOption}
+          </option>
+        );
       }
     );
   }
@@ -43,13 +50,18 @@ export default class Beers extends Component {
     return (
       <>
         <div className="row p-3">
-          <select onChange={this.listByCountry}>
-            <option value={this.state.defaultOption} disabled />
-            {this.state.beers.length > 0 && this.setOptions()}
+          <select
+            value={"Search by country"}
+            onChange={e => this.listByCountry(e)}
+          >
+            <option value="Search by country" disabled>
+              Search by country
+            </option>
+            {this.state.beers.length > 0 && this.setCountryOptions()}
           </select>
         </div>
         <div className="row text-center">
-          {this.state.beers.map(beer => (
+          {this.state.selectedBeers.map(beer => (
             <Beer key={beer.id} beer={beer} />
           ))}
         </div>
