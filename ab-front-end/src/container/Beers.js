@@ -31,24 +31,17 @@ export default class Beers extends Component {
       });
   };
 
-  componentDidUpdate() {
-    if (this.state.beers.length > 0) {
-      return [...new Set(this.state.beers.map(beer => beer.country))].map(
-        beer => (
-          <option key={beer.country + beer.id} value={beer.country}>
-            {beer.country}
-          </option>
-        )
-      );
-    }
+  setOptions() {
+    return [...new Set(this.state.beers.map(beer => beer.country))];
   }
-
   render() {
     return (
       <>
         <div className="row p-3">
           <p>By country: </p>
-          <select onChange={this.listByCountry}>{this.getCountries()}</select>
+          <select onChange={() => this.listByCountry()}>
+            {this.state.beers.length > 0 && this.setOptions()}
+          </select>
         </div>
         <div className="row text-center">
           {this.state.beers.map(beer => (
