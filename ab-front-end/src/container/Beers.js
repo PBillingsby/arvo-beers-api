@@ -35,6 +35,13 @@ export default class Beers extends Component {
       });
   };
 
+  handleDelete = id => {
+    fetch(`http://localhost:3001/api/v1/beers/${id}`, {
+      method: "DELETE"
+    });
+    this.getBeers();
+  };
+
   setCountryOptions() {
     return [...new Set(this.state.beers.map(beer => beer.country))].map(
       countryOption => {
@@ -61,11 +68,16 @@ export default class Beers extends Component {
           </select>
         </div>
         <div className="row text-center">
-          {this.state.selectedBeers.map(beer => (
-            <Beer key={beer.id} beer={beer} />
-          ))}
+          {this.state.selectedBeers.length > 0 &&
+            this.state.selectedBeers.map(beer => (
+              <Beer
+                key={beer.id}
+                handleDelete={this.handleDelete}
+                beer={beer}
+              />
+            ))}
+          <BeerForm getBeers={() => this.getBeers()} />
         </div>
-        <BeerForm getBeers={() => this.getBeers()} />
       </>
     );
   }
