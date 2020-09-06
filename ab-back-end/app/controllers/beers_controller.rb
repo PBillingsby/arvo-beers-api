@@ -12,7 +12,12 @@ class BeersController < ApplicationController
     render json: beers
   end
 
+  def destroy
+    beer = Beer.find_by(id: params[:id])
+    beer.destroy
+  end
+
   def beer_params
-    params.require(:beer).permit(:brewery_name, :name, :beer_type, :abv)
+    params.require(:beer).permit(:name, :brewery_name, :country, :beer_type, :abv)
   end
 end

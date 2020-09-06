@@ -6,6 +6,7 @@ class CreateBeers < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :beer_type
       t.float :abv
+      t.string :image_url
 
       t.timestamps
     end
