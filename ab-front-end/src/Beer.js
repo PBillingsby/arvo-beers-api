@@ -8,21 +8,28 @@ const Beer = props => {
     country,
     beer_type,
     abv,
-    avatar
+    avatar_url
   } = props.beer;
+  let imgSrc = avatar_url
+    ? avatar_url[0]
+    : "https://yw553ftvhw1iqegz29fycoyw-wpengine.netdna-ssl.com/wp-content/uploads/2017/09/beer-16-9.jpg";
   return (
-    <div className="card m-2 w-25 text-center" key={id}>
-      <h3>{name}</h3>
-      <p>Origin: {country}</p>
-      <p>Brewery: {brewery_name}</p>
-      <p>Type: {beer_type}</p>
-      <p>ABV: {abv}%</p>
-      <p>
-        <img src={avatar} className="w-25" />
-      </p>
-      <button id={id} onClick={() => props.handleDelete(id)}>
-        Delete
-      </button>
+    <div className="card" style={{ width: "14vw" }} key={id}>
+      <img
+        src={imgSrc}
+        style={{ maxWidth: "75%" }}
+        className="img-fluid mt-3 mx-auto img-thumbnail card-image-top"
+      />
+      <div className="card-body">
+        <h3 class="card-title">{name}</h3>
+        <p className="card-text">Origin: {country}</p>
+        <p className="card-text">Brewery: {brewery_name}</p>
+        <p className="card-text">Type: {beer_type}</p>
+        <p className="card-text">ABV: {abv}%</p>
+        <button id={id} onClick={() => props.handleDelete(id)}>
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

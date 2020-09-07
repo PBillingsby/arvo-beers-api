@@ -32,6 +32,7 @@ export default class Beers extends Component {
           beers: beer,
           selectedBeers: beer
         });
+        console.log(beer);
       });
   };
 
