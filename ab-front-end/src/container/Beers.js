@@ -16,14 +16,6 @@ export default class Beers extends Component {
     this.getBeers();
   }
 
-  listByCountry = e => {
-    this.setState({
-      selectedBeers: this.state.beers.filter(
-        beer => beer.country === e.target.value
-      )
-    });
-  };
-
   getBeers = () => {
     fetch("http://localhost:3001/api/v1/beers")
       .then(resp => resp.json())
@@ -42,6 +34,22 @@ export default class Beers extends Component {
     }).then(resp => this.getBeers());
   };
 
+  listByCountry = e => {
+    this.setState({
+      selectedBeers: this.state.beers.filter(
+        beer => beer.country === e.target.value
+      )
+    });
+  };
+
+  listByType = e => {
+    this.setState({
+      selectedBeers: this.state.beers.filter(
+        beer => beer.beer_type === e.target.value
+      )
+    });
+  };
+
   setCountryOptions() {
     return [...new Set(this.state.beers.map(beer => beer.country))].map(
       countryOption => {
@@ -53,6 +61,18 @@ export default class Beers extends Component {
       }
     );
   }
+  setTypeOptions() {
+    return [...new Set(this.state.beers.map(beer => beer.beer_type))].map(
+      typeOption => {
+        return (
+          <option key={typeOption} defaultValue={typeOption}>
+            {typeOption}
+          </option>
+        );
+      }
+    );
+  }
+
   render() {
     return (
       <>
@@ -66,6 +86,21 @@ export default class Beers extends Component {
             </option>
             {this.state.beers.length > 0 ? (
               this.setCountryOptions()
+            ) : (
+              <option disabled>No countries yet</option>
+            )}
+          </select>
+        </div>
+        <div className="row p-3">
+          <select
+            value={"Search by variety"}
+            onChange={e => this.listByType(e)}
+          >
+            <option value="Search by variety" disabled>
+              Search by variety
+            </option>
+            {this.state.beers.length > 0 ? (
+              this.setTypeOptions()
             ) : (
               <option disabled>No countries yet</option>
             )}

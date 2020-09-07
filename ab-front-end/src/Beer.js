@@ -21,7 +21,7 @@ const Beer = props => {
         className="img-fluid mt-3 mx-auto img-thumbnail card-image-top"
       />
       <div className="card-body">
-        <h3 class="card-title">{name}</h3>
+        <h3 className="card-title">{name}</h3>
         <p className="card-text">Origin: {country}</p>
         <p className="card-text">Brewery: {brewery_name}</p>
         <p className="card-text">Type: {beer_type}</p>
