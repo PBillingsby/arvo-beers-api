@@ -12,12 +12,19 @@ class BeersController < ApplicationController
     render json: beers
   end
 
+  def update
+    beer = Beer.find_by(id: params[:id])
+    beer.avatar.attach(params[:avatar])
+    render json: beer, methods: [:image_url]
+  end
+
   def destroy
     beer = Beer.find_by(id: params[:id])
     beer.destroy
   end
 
   def beer_params
-    params.require(:beer).permit(:name, :brewery_name, :country, :beer_type, :abv)
+    params.permit(:id, :name, :brewery_name, :country, :beer_type, :abv, :avatar)
   end
+
 end
