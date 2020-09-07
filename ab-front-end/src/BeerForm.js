@@ -3,20 +3,23 @@ export default class BeerForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      beer: ""
+      beer: "",
+      avatar: ""
     };
   }
   handleData = e => {
     e.preventDefault();
-    let newBeer = {
+    const avatar = e.target.avatar.files[0];
+    const beer = {
       name: e.target.name.value,
       brewery_name: e.target.brewery_name.value,
       country: e.target.country.value,
       beer_type: e.target.beer_type.value,
       abv: e.target.abv.value
     };
+
     this.setState({
-      beer: newBeer
+      avatar: avatar
     });
 
     fetch("http://localhost:3001/api/v1/beers", {
@@ -24,8 +27,28 @@ export default class BeerForm extends Component {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(newBeer)
-    }).then(resp => resp.json().then(beer => this.props.getBeers()));
+      body: JSON.stringify(beer)
+    }).then(resp =>
+      resp.json().then(beer => {
+        this.handlePhotoChange(this, beer);
+        this.props.getBeers();
+      })
+    );
+  };
+
+  handlePhotoChange = (state, beer) => {
+    const formData = new FormData();
+    formData.append("avatar", state.state.avatar);
+    fetch(`http://localhost:3001/api/v1/beers/${beer.id}`, {
+      method: "PUT",
+      body: formData
+    })
+      .then(resp => resp.json())
+      .then(beer => {
+        debugger;
+        this.setState({ beer: beer });
+        this.props.getBeers();
+      });
   };
 
   render() {
@@ -84,6 +107,13 @@ export default class BeerForm extends Component {
               step="0.1"
               placeholder="%"
             />
+          </div>
+          <div className="custom-file m-3">
+            <input
+              type="file"
+              accept="image/png, image/jpeg"
+              name="avatar"
+            ></input>
           </div>
           <input className="text-center" type="submit" />
         </form>

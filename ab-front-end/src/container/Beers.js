@@ -38,8 +38,7 @@ export default class Beers extends Component {
   handleDelete = id => {
     fetch(`http://localhost:3001/api/v1/beers/${id}`, {
       method: "DELETE"
-    });
-    this.getBeers();
+    }).then(resp => this.getBeers());
   };
 
   setCountryOptions() {
@@ -64,7 +63,11 @@ export default class Beers extends Component {
             <option value="Search by country" disabled>
               Search by country
             </option>
-            {this.state.beers.length > 0 && this.setCountryOptions()}
+            {this.state.beers.length > 0 ? (
+              this.setCountryOptions()
+            ) : (
+              <option disabled>No countries yet</option>
+            )}
           </select>
         </div>
         <div className="row text-center">
