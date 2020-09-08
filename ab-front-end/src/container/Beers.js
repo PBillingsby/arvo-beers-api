@@ -8,7 +8,8 @@ export default class Beers extends Component {
     super();
     this.state = {
       beers: [],
-      selectedBeers: []
+      selectedBeers: [],
+      selectedText: ""
     };
   }
 
@@ -38,7 +39,8 @@ export default class Beers extends Component {
     this.setState({
       selectedBeers: this.state.beers.filter(
         beer => beer.country === e.target.value
-      )
+      ),
+      selectedText: e.target.value + " Beers"
     });
   };
 
@@ -46,7 +48,8 @@ export default class Beers extends Component {
     this.setState({
       selectedBeers: this.state.beers.filter(
         beer => beer.beer_type === e.target.value
-      )
+      ),
+      selectedText: e.target.value + " Beers"
     });
   };
 
@@ -106,6 +109,8 @@ export default class Beers extends Component {
             )}
           </select>
         </div>
+        <h1 className="text-center">{this.state.selectedText}</h1>
+
         <div className="row text-center">
           {this.state.selectedBeers.length > 0 &&
             this.state.selectedBeers.map(beer => (
@@ -115,6 +120,9 @@ export default class Beers extends Component {
                 beer={beer}
               />
             ))}
+        </div>
+        <div>
+          {" "}
           <BeerForm getBeers={() => this.getBeers()} />
         </div>
       </>
