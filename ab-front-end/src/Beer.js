@@ -14,11 +14,11 @@ const Beer = props => {
     ? avatar_url[0]
     : "https://yw553ftvhw1iqegz29fycoyw-wpengine.netdna-ssl.com/wp-content/uploads/2017/09/beer-16-9.jpg";
   return (
-    <div className="card" style={{ width: "14vw" }} key={id}>
+    <div className="card m-3" style={{ width: "20vw" }} key={id}>
       <img
         src={imgSrc}
         alt="beer-image"
-        style={{ maxWidth: "75%" }}
+        style={{ maxWidth: "75%", maxHeight: "20vh" }}
         className="img-fluid mt-3 mx-auto img-thumbnail card-image-top"
       />
       <div className="card-body">

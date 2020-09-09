@@ -1,8 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink
+} from "react-router-dom";
 
 import Beers from "./container/Beers";
-import BeerForm from "./BeerForm";
 
 import Home from "./Home";
 class App extends React.Component {
@@ -13,9 +17,13 @@ class App extends React.Component {
           <h1 className="text-center">Arvo Beers</h1>
         </header>
         <div className="p-3 container">
-          <Router>
-            <Link to="/">Home</Link>
-            <Link to="/beers">Beers</Link>
+          <Router className="text-center">
+            <NavLink className="pr-4" activeStyle={{ color: "#F6AB31" }} to="/">
+              Home
+            </NavLink>
+            <NavLink activeStyle={{ color: "#F6AB31" }} to="/beers">
+              Beers
+            </NavLink>
             {/* <Beers /> */}
             <Switch>
               <Route exact path="/">

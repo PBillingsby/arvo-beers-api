@@ -53,14 +53,15 @@ export default class BeerForm extends Component {
   render() {
     return (
       <>
+        <h3>Add Beer</h3>
+
         <form
-          className="w-25 p-3 mx-auto border border-dark"
+          className="row p-2 mx-auto border border-light"
           onSubmit={e => {
             this.handleData(e);
           }}
         >
-          <h3>Add Beer</h3>
-          <div className="form-group">
+          <div className="col-sm">
             <label>Beer Name</label>
             <input
               type="text"
@@ -68,8 +69,6 @@ export default class BeerForm extends Component {
               name="name"
               placeholder="Beer Name"
             />
-          </div>
-          <div className="form-group">
             <label>Brewery Name</label>
             <input
               type="text"
@@ -78,7 +77,8 @@ export default class BeerForm extends Component {
               placeholder="Brewery Name"
             />
           </div>
-          <div className="form-group">
+
+          <div className="col-sm">
             <label>Brewer Country</label>
             <input
               type="text"
@@ -86,8 +86,6 @@ export default class BeerForm extends Component {
               name="country"
               placeholder="Brewer Country"
             />
-          </div>
-          <div className="form-group">
             <label>Beer Type</label>
             <input
               type="text"
@@ -96,7 +94,7 @@ export default class BeerForm extends Component {
               placeholder="Beer Type"
             />
           </div>
-          <div className="form-group">
+          <div className="row-sm">
             <label>ABV</label>
             <input
               type="number"
@@ -106,15 +104,10 @@ export default class BeerForm extends Component {
               step="0.1"
               placeholder="%"
             />
+            <button className="m-3 btn btn-secondary btn-lg" type="submit">
+              Submit
+            </button>
           </div>
-          <div className="custom-file m-3">
-            <input
-              type="file"
-              accept="image/png, image/jpeg"
-              name="avatar"
-            ></input>
-          </div>
-          <input className="text-center" type="submit" />
         </form>
       </>
     );
