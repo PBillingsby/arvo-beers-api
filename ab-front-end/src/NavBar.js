@@ -9,9 +9,6 @@ const NavBar = () => {
       <NavLink className="mr-5" activeStyle={{ color: "#F6AB31" }} to="/beers">
         Beers
       </NavLink>
-      <NavLink className="mr-5" activeStyle={{ color: "#F6AB31" }} to="/beers">
-        Something else
-      </NavLink>
     </div>
   );
 };

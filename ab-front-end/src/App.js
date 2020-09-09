@@ -3,9 +3,31 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import NavBar from "./NavBar";
 import Beers from "./container/Beers";
-
+import BeerShow from "./BeerShow";
 import Home from "./Home";
+
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      beers: []
+    };
+  }
+
+  componentDidMount() {
+    this.getBeers();
+  }
+
+  getBeers = () => {
+    fetch("http://localhost:3001/api/v1/beers")
+      .then(resp => resp.json())
+      .then(beer => {
+        this.setState({
+          beers: beer,
+          selectedBeers: beer
+        });
+      });
+  };
   render() {
     return (
       <>
@@ -14,13 +36,16 @@ class App extends React.Component {
           <NavBar />
         </header>
         <div className="p-3 container">
-          {/* <Beers /> */}
           <Switch>
             <Route exact path="/">
               <Home />
             </Route>
+            <Route
+              path="/beers/:id"
+              render={e => <BeerShow state={this.state} id={e} />}
+            />
             <Route path="/beers">
-              <Beers />
+              <Beers state={this.state} />
             </Route>
           </Switch>
         </div>

@@ -33,7 +33,6 @@ class BeerForm extends Component {
     }).then(resp =>
       resp.json().then(beer => {
         this.handlePhotoChange(this, beer);
-        // this.props.getBeers();
       })
     );
   };

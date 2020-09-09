@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
 
-import BeerForm from "../BeerForm";
 import Beer from "../Beer";
-
+import BeerShow from "../BeerShow";
 export default class Beers extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       beers: [],
       selectedBeers: [],
@@ -14,30 +14,31 @@ export default class Beers extends Component {
   }
 
   componentDidMount() {
-    this.getBeers();
+    this.setState({
+      selectedBeers: this.props.state.beers
+    });
   }
 
-  getBeers = () => {
-    fetch("http://localhost:3001/api/v1/beers")
-      .then(resp => resp.json())
-      .then(beer => {
-        this.setState({
-          beers: beer,
-          selectedBeers: beer
-        });
-        console.log(beer);
-      });
-  };
+  // getBeers = () => {
+  //   fetch("http://localhost:3001/api/v1/beers")
+  //     .then(resp => resp.json())
+  //     .then(beer => {
+  //       this.setState({
+  //         beers: beer,
+  //         selectedBeers: beer
+  //       });
+  //     });
+  // };
 
   handleDelete = id => {
     fetch(`http://localhost:3001/api/v1/beers/${id}`, {
       method: "DELETE"
-    }).then(resp => this.getBeers());
+    }).then(resp => this.props.getBeers());
   };
 
   listByCountry = e => {
     this.setState({
-      selectedBeers: this.state.beers.filter(
+      selectedBeers: this.props.state.beers.filter(
         beer => beer.country === e.target.value
       ),
       selectedText: e.target.value + " Beers"
@@ -46,7 +47,7 @@ export default class Beers extends Component {
 
   listByType = e => {
     this.setState({
-      selectedBeers: this.state.beers.filter(
+      selectedBeers: this.props.state.beers.filter(
         beer => beer.beer_type === e.target.value
       ),
       selectedText: e.target.value + " Beers"
@@ -54,7 +55,7 @@ export default class Beers extends Component {
   };
 
   setCountryOptions() {
-    return [...new Set(this.state.beers.map(beer => beer.country))].map(
+    return [...new Set(this.props.state.beers.map(beer => beer.country))].map(
       countryOption => {
         return (
           <option key={countryOption} defaultValue={countryOption}>
@@ -65,7 +66,7 @@ export default class Beers extends Component {
     );
   }
   setTypeOptions() {
-    return [...new Set(this.state.beers.map(beer => beer.beer_type))].map(
+    return [...new Set(this.props.state.beers.map(beer => beer.beer_type))].map(
       typeOption => {
         return (
           <option key={typeOption} defaultValue={typeOption}>
@@ -114,7 +115,7 @@ export default class Beers extends Component {
 
         <h1 className="text-center">{this.state.selectedText}</h1>
 
-        <div className="row mx-auto">
+        <div className="row">
           {this.state.selectedBeers.length > 0 &&
             this.state.selectedBeers.map(beer => (
               <Beer
@@ -123,6 +124,13 @@ export default class Beers extends Component {
                 beer={beer}
               />
             ))}
+          {/* <Switch>
+            <Route
+              path="/beers/:id"
+              render={e => <BeerShow state={this.props.state} id={e} />}
+            />
+            
+          </Switch> */}
         </div>
       </>
     );
