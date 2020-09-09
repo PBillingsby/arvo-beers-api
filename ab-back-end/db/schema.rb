@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2020_09_07_183127) do
     t.string "name"
     t.string "beer_type"
     t.float "abv"
+    t.integer "rating"
+    t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
