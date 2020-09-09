@@ -1,11 +1,7 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import NavBar from "./NavBar";
 import Beers from "./container/Beers";
 
 import Home from "./Home";
@@ -15,25 +11,18 @@ class App extends React.Component {
       <>
         <header className="beer-background-header">
           <h1 className="text-center">Arvo Beers</h1>
+          <NavBar />
         </header>
         <div className="p-3 container">
-          <Router className="text-center">
-            <NavLink className="pr-4" activeStyle={{ color: "#F6AB31" }} to="/">
-              Home
-            </NavLink>
-            <NavLink activeStyle={{ color: "#F6AB31" }} to="/beers">
-              Beers
-            </NavLink>
-            {/* <Beers /> */}
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/beers">
-                <Beers />
-              </Route>
-            </Switch>
-          </Router>
+          {/* <Beers /> */}
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/beers">
+              <Beers />
+            </Route>
+          </Switch>
         </div>
       </>
     );
