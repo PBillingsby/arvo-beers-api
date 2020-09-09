@@ -54,7 +54,7 @@ class BeerForm extends Component {
   render() {
     return (
       <>
-        <h3>Add Beer</h3>
+        <h2 className="text-center mt-5">Add Beer</h2>
 
         <form
           className="row p-2 mx-auto border border-light"

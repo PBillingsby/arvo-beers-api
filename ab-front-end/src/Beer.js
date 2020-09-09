@@ -16,7 +16,7 @@ const Beer = props => {
         />
       </Link>
       <div className="card-body">
-        <h3 className="card-title">{name}</h3>
+        <h4 className="card-title">{name}</h4>
         <p className="card-text">Brewery: {brewery_name}</p>
         <div className="text-center">
           <button id={id} onClick={() => props.handleDelete(id)}>

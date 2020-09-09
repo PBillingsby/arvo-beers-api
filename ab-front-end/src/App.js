@@ -32,7 +32,7 @@ class App extends React.Component {
     return (
       <>
         <header className="beer-background-header">
-          <h1 className="text-center">Arvo Beers</h1>
+          <h1 className="header text-center">Arvo Beers</h1>
           <NavBar />
         </header>
         <div className="p-3 container">
@@ -40,13 +40,18 @@ class App extends React.Component {
             <Route exact path="/">
               <Home />
             </Route>
+
+            <Route
+              exact
+              path="/beers"
+              render={() => (
+                <Beers getBeers={() => this.getBeers()} state={this.state} />
+              )}
+            />
             <Route
               path="/beers/:id"
               render={e => <BeerShow state={this.state} id={e} />}
             />
-            <Route path="/beers">
-              <Beers state={this.state} />
-            </Route>
           </Switch>
         </div>
       </>

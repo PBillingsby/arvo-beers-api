@@ -6,7 +6,7 @@ const BeerShow = props => {
   );
   return (
     <div>
-      <h1>{beer.name}</h1>
+      <h3 className="text-center header">{beer.name}</h3>
     </div>
   );
 };

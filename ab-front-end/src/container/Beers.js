@@ -2,33 +2,21 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Beer from "../Beer";
-import BeerShow from "../BeerShow";
 export default class Beers extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      beers: [],
       selectedBeers: [],
       selectedText: ""
     };
   }
 
   componentDidMount() {
+    this.props.getBeers();
     this.setState({
       selectedBeers: this.props.state.beers
     });
   }
-
-  // getBeers = () => {
-  //   fetch("http://localhost:3001/api/v1/beers")
-  //     .then(resp => resp.json())
-  //     .then(beer => {
-  //       this.setState({
-  //         beers: beer,
-  //         selectedBeers: beer
-  //       });
-  //     });
-  // };
 
   handleDelete = id => {
     fetch(`http://localhost:3001/api/v1/beers/${id}`, {
@@ -89,7 +77,7 @@ export default class Beers extends Component {
             <option value="Search by country" disabled>
               Search by country
             </option>
-            {this.state.beers.length > 0 ? (
+            {this.props.state.beers.length > 0 ? (
               this.setCountryOptions()
             ) : (
               <option disabled>No countries yet</option>
@@ -105,7 +93,7 @@ export default class Beers extends Component {
             <option value="Search by variety" disabled>
               Search by variety
             </option>
-            {this.state.beers.length > 0 ? (
+            {this.props.state.beers.length > 0 ? (
               this.setTypeOptions()
             ) : (
               <option disabled>No countries yet</option>
@@ -116,21 +104,9 @@ export default class Beers extends Component {
         <h1 className="text-center">{this.state.selectedText}</h1>
 
         <div className="row">
-          {this.state.selectedBeers.length > 0 &&
-            this.state.selectedBeers.map(beer => (
-              <Beer
-                key={beer.id}
-                handleDelete={this.handleDelete}
-                beer={beer}
-              />
-            ))}
-          {/* <Switch>
-            <Route
-              path="/beers/:id"
-              render={e => <BeerShow state={this.props.state} id={e} />}
-            />
-            
-          </Switch> */}
+          {this.props.state.beers.map(beer => (
+            <Beer key={beer.id} handleDelete={this.handleDelete} beer={beer} />
+          ))}
         </div>
       </>
     );
