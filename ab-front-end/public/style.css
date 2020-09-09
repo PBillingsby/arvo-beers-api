@@ -1,8 +1,7 @@
 .beer-background-header {
   background-image: url("https://artisanalbrewworks.com/wp-content/uploads/2016/03/beer-background.jpg") !important;
 }
-header h1,
-h3 {
+header h1 {
   font-size: 500% !important;
   color: rgb(255, 172, 46) !important;
   letter-spacing: 0.5rem;

@@ -1,13 +1,24 @@
 import React from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+
 const BeerShow = props => {
   let beer = props.state.beers.find(
     beer => beer.id === parseInt(props.id.match.params.id)
   );
-  console.log(beer);
+  let starsArr = [];
+  for (let i = 0; i < beer.rating; i++) {
+    starsArr.push(<FontAwesomeIcon icon={faStar} style={{ color: "gold" }} />);
+  }
   return (
-    <div>
-      <h3 className="text-center header">{beer.name}</h3>
+    <div className="text-center">
+      <h3 className="text-center">{beer.name}</h3>
+      <p>by {beer.brewery_name}</p>
+      <img src={beer.avatar_url[0]} style={{ maxWidth: "20rem" }} />
+      <br />
+      <span>{starsArr}</span>
+      <p>Notes: {beer.notes}</p>
     </div>
   );
 };

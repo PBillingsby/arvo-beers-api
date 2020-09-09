@@ -112,7 +112,7 @@ class BeerForm extends Component {
               type="number"
               className="form-control"
               min="0"
-              max="10"
+              max="5"
               name="rating"
               placeholder="Rating"
             />
