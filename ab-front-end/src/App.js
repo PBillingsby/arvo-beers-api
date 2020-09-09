@@ -1,12 +1,11 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import Beers from "./container/Beers";
+import BeerForm from "./BeerForm";
+
+import Home from "./Home";
 class App extends React.Component {
-  // state = {
-  //   isClicked: false
-  // };
-  // listBeers() {
-  //   this.setState({ isClicked: true });
-  // }
   render() {
     return (
       <>
@@ -14,11 +13,19 @@ class App extends React.Component {
           <h1 className="text-center">Arvo Beers</h1>
         </header>
         <div className="p-3 container">
-          {/* <button className="mx-auto" onClick={() => this.listBeers()}>
-            Lets Start
-          </button> */}
-          {/* {this.state.isClicked ? <Beers /> : null} */}
-          <Beers />
+          <Router>
+            <Link to="/">Home</Link>
+            <Link to="/beers">Beers</Link>
+            {/* <Beers /> */}
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/beers">
+                <Beers />
+              </Route>
+            </Switch>
+          </Router>
         </div>
       </>
     );

@@ -17,6 +17,7 @@ const Beer = props => {
     <div className="card" style={{ width: "14vw" }} key={id}>
       <img
         src={imgSrc}
+        alt="beer-image"
         style={{ maxWidth: "75%" }}
         className="img-fluid mt-3 mx-auto img-thumbnail card-image-top"
       />

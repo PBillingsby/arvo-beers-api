@@ -109,6 +109,7 @@ export default class Beers extends Component {
             )}
           </select>
         </div>
+
         <h1 className="text-center">{this.state.selectedText}</h1>
 
         <div className="row text-center">
@@ -120,10 +121,6 @@ export default class Beers extends Component {
                 beer={beer}
               />
             ))}
-        </div>
-        <div>
-          {" "}
-          <BeerForm getBeers={() => this.getBeers()} />
         </div>
       </>
     );

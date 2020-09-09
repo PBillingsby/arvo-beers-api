@@ -46,7 +46,7 @@ export default class BeerForm extends Component {
       .then(resp => resp.json())
       .then(beer => {
         this.setState({ beer: beer });
-        this.props.getBeers();
+        // this.props.getBeers();
       });
   };
 
