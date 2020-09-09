@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
 
 import Beer from "../Beer";
 export default class Beers extends Component {
@@ -12,7 +11,6 @@ export default class Beers extends Component {
   }
 
   componentDidMount() {
-    this.props.getBeers();
     this.setState({
       selectedBeers: this.props.state.beers
     });
@@ -104,9 +102,14 @@ export default class Beers extends Component {
         <h1 className="text-center">{this.state.selectedText}</h1>
 
         <div className="row">
-          {this.props.state.beers.map(beer => (
-            <Beer key={beer.id} handleDelete={this.handleDelete} beer={beer} />
-          ))}
+          {this.state.selectedBeers.length > 0 &&
+            this.state.selectedBeers.map(beer => (
+              <Beer
+                key={beer.id}
+                handleDelete={this.handleDelete}
+                beer={beer}
+              />
+            ))}
         </div>
       </>
     );

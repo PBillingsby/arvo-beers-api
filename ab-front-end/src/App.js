@@ -15,10 +15,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getBeers();
-  }
-
-  getBeers = () => {
     fetch("http://localhost:3001/api/v1/beers")
       .then(resp => resp.json())
       .then(beer => {
@@ -27,7 +23,18 @@ class App extends React.Component {
           selectedBeers: beer
         });
       });
-  };
+  }
+
+  // getBeers = () => {
+  //   fetch("http://localhost:3001/api/v1/beers")
+  //     .then(resp => resp.json())
+  //     .then(beer => {
+  //       this.setState({
+  //         beers: beer,
+  //         selectedBeers: beer
+  //       });
+  //     });
+  // };
   render() {
     return (
       <>

@@ -17,6 +17,8 @@ class BeerForm extends Component {
       brewery_name: e.target.brewery_name.value,
       country: e.target.country.value,
       beer_type: e.target.beer_type.value,
+      rating: e.target.rating.value,
+      notes: e.target.notes.value,
       abv: e.target.abv.value
     };
 
@@ -105,6 +107,25 @@ class BeerForm extends Component {
               step="0.1"
               placeholder="%"
             />
+            <label>Rating</label>
+            <input
+              type="number"
+              className="form-control"
+              min="0"
+              max="10"
+              name="rating"
+              placeholder="Rating"
+            />
+
+            <div className="row-md">
+              <label>Notes</label>
+              <input
+                className="form-control"
+                type="text"
+                name="notes"
+                placeholder="Notes"
+              />
+            </div>
             <div className="custom-file mt-4">
               <input
                 type="file"
