@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-export default class BeerForm extends Component {
+import { withRouter } from "react-router";
+
+class BeerForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,7 +33,7 @@ export default class BeerForm extends Component {
     }).then(resp =>
       resp.json().then(beer => {
         this.handlePhotoChange(this, beer);
-        this.props.getBeers();
+        // this.props.getBeers();
       })
     );
   };
@@ -46,7 +48,7 @@ export default class BeerForm extends Component {
       .then(resp => resp.json())
       .then(beer => {
         this.setState({ beer: beer });
-        // this.props.getBeers();
+        this.props.history.push("/beers");
       });
   };
 
@@ -98,13 +100,23 @@ export default class BeerForm extends Component {
             <label>ABV</label>
             <input
               type="number"
-              className="form-control"
+              className="form-control mb-2"
               name="abv"
               min="0"
               step="0.1"
               placeholder="%"
             />
-            <button className="m-3 btn btn-secondary btn-lg" type="submit">
+            <div className="custom-file mt-4">
+              <input
+                type="file"
+                accept="image/png, image/jpeg"
+                name="avatar"
+              ></input>
+            </div>
+            <button
+              className="m-2 mx-auto btn btn-secondary btn-lg"
+              type="submit"
+            >
               Submit
             </button>
           </div>
@@ -113,3 +125,4 @@ export default class BeerForm extends Component {
     );
   }
 }
+export default withRouter(BeerForm);

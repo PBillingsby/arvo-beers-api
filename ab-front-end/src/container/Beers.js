@@ -81,6 +81,7 @@ export default class Beers extends Component {
       <>
         <div className="row p-3">
           <select
+            className="mx-auto"
             value={"Search by country"}
             onChange={e => this.listByCountry(e)}
           >
@@ -96,6 +97,7 @@ export default class Beers extends Component {
         </div>
         <div className="row p-3">
           <select
+            className="mx-auto"
             value={"Search by variety"}
             onChange={e => this.listByType(e)}
           >
@@ -112,7 +114,7 @@ export default class Beers extends Component {
 
         <h1 className="text-center">{this.state.selectedText}</h1>
 
-        <div className="row text-center">
+        <div className="row mx-auto">
           {this.state.selectedBeers.length > 0 &&
             this.state.selectedBeers.map(beer => (
               <Beer
