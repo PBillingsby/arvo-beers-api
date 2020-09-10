@@ -51,9 +51,7 @@ class App extends React.Component {
             <Route
               exact
               path="/beers"
-              render={() => (
-                <Beers getBeers={() => this.getBeers()} state={this.state} />
-              )}
+              render={() => <Beers state={this.state} />}
             />
             <Route
               path="/beers/:id"

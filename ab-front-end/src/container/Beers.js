@@ -19,7 +19,7 @@ export default class Beers extends Component {
   handleDelete = id => {
     fetch(`http://localhost:3001/api/v1/beers/${id}`, {
       method: "DELETE"
-    }).then(resp => this.props.getBeers());
+    }).then(resp => window.history.back());
   };
 
   listByCountry = e => {

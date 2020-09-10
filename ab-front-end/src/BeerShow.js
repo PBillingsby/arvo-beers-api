@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
@@ -19,6 +19,7 @@ const BeerShow = props => {
       <br />
       <span>{starsArr}</span>
       <p>Notes: {beer.notes}</p>
+      <button onClick={() => window.history.back()}>Back</button>
     </div>
   );
 };
