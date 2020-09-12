@@ -19,7 +19,7 @@ export default class Beers extends Component {
   handleDelete = id => {
     fetch(`http://localhost:3001/api/v1/beers/${id}`, {
       method: "DELETE"
-    }).then(resp => window.history.back());
+    }).then(resp => window.location.reload());
   };
 
   listByCountry = e => {
@@ -102,14 +102,10 @@ export default class Beers extends Component {
         <h1 className="text-center">{this.state.selectedText}</h1>
 
         <div className="row">
-          {this.state.selectedBeers.length > 0 &&
-            this.state.selectedBeers.map(beer => (
-              <Beer
-                key={beer.id}
-                handleDelete={this.handleDelete}
-                beer={beer}
-              />
-            ))}
+          {console.log(this.state)}
+          {this.state.selectedBeers.map(beer => (
+            <Beer key={beer.id} handleDelete={this.handleDelete} beer={beer} />
+          ))}
         </div>
       </>
     );

@@ -49,7 +49,7 @@ class BeerForm extends Component {
       .then(resp => resp.json())
       .then(beer => {
         this.setState({ beer: beer });
-        this.props.history.push("/beers");
+        window.location.reload();
       });
   };
 

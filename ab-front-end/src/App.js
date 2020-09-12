@@ -17,10 +17,9 @@ class App extends React.Component {
   componentDidMount() {
     fetch("http://localhost:3001/api/v1/beers")
       .then(resp => resp.json())
-      .then(beer => {
+      .then(beers => {
         this.setState({
-          beers: beer,
-          selectedBeers: beer
+          beers: beers
         });
       });
   }
@@ -47,15 +46,14 @@ class App extends React.Component {
             <Route exact path="/">
               <Home />
             </Route>
-
+            <Route
+              path="/beers/:id"
+              render={e => <BeerShow state={this.state} id={e} />}
+            />
             <Route
               exact
               path="/beers"
               render={() => <Beers state={this.state} />}
-            />
-            <Route
-              path="/beers/:id"
-              render={e => <BeerShow state={this.state} id={e} />}
             />
           </Switch>
         </div>
