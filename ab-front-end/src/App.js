@@ -17,9 +17,9 @@ class App extends React.Component {
   componentDidMount() {
     fetch("http://localhost:3001/api/v1/beers")
       .then(resp => resp.json())
-      .then(beers => {
+      .then(beer => {
         this.setState({
-          beers: beers
+          beers: beer
         });
       });
   }
@@ -44,7 +44,7 @@ class App extends React.Component {
         <div className="p-3 container">
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Home state={this.state} />
             </Route>
             <Route
               path="/beers/:id"

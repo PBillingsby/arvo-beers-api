@@ -103,7 +103,7 @@ export default class Beers extends Component {
 
         <h1 className="text-center">{this.state.selectedText}</h1>
 
-        <div className="col">
+        <div className="row">
           {this.state.selectedBeers.map(beer => (
             <Beer key={beer.id} handleDelete={this.handleDelete} beer={beer} />
           ))}

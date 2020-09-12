@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const Beer = props => {
+  console.log(props);
   const { id, name, brewery_name, avatar_url } = props.beer;
   let imgSrc = avatar_url
     ? avatar_url[0]

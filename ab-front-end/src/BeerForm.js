@@ -56,7 +56,7 @@ class BeerForm extends Component {
   render() {
     return (
       <>
-        <h2 className="text-center mt-5">Add Beer</h2>
+        <h2 className="text-center">Add Beer</h2>
 
         <form
           className="row p-2 mx-auto border border-light"
@@ -97,7 +97,7 @@ class BeerForm extends Component {
               placeholder="Beer Type"
             />
           </div>
-          <div className="row-sm">
+          <div className="col-sm">
             <label>ABV</label>
             <input
               type="number"
