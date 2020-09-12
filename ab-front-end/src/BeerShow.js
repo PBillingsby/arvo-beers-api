@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const BeerShow = props => {
+  console.log("Beer Show:", props);
   let beer = props.state.beers.find(
     beer => beer.id === parseInt(props.id.match.params.id)
   );
@@ -15,13 +16,20 @@ const BeerShow = props => {
     starsArr.push(<FontAwesomeIcon icon={faStar} style={{ color: "gold" }} />);
   }
   return (
-    <div className="text-center">
-      <h3 className="text-center">{beer.name}</h3>
-      <p>by {beer.brewery_name}</p>
+    <div key={beer.id} className="text-center">
+      <h2 className="text-center">{beer.name}</h2>
+      <p>
+        by {beer.brewery_name} - {beer.country}
+      </p>
       <img src={imgSrc} style={{ maxWidth: "20rem" }} />
-      <br />
+      <p>
+        {beer.beer_type} - {beer.abv}%
+      </p>
       <span>{starsArr}</span>
       <p>Notes: {beer.notes}</p>
+      <button id={beer.id} onClick={id => props.handleDelete(beer.id)}>
+        Delete
+      </button>
       <button onClick={() => window.history.back()}>Back</button>
     </div>
   );

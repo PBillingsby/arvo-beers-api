@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const Beer = props => {
-  console.log(props);
+  console.log("Beer:", props);
   const { id, name, brewery_name, avatar_url } = props.beer;
   let imgSrc = avatar_url
     ? avatar_url[0]
@@ -19,11 +19,11 @@ const Beer = props => {
       <div className="card-body">
         <h4 className="card-title">{name}</h4>
         <p className="card-text">Brewery: {brewery_name}</p>
-        <div className="text-center">
+        {/* <div className="text-center">
           <button id={id} onClick={() => props.handleDelete(id)}>
             Delete
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

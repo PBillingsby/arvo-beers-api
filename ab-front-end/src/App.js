@@ -13,7 +13,11 @@ class App extends React.Component {
       beers: []
     };
   }
-
+  handleDelete = id => {
+    fetch(`http://localhost:3001/api/v1/beers/${id}`, {
+      method: "DELETE"
+    }).then(resp => window.history.back());
+  };
   componentDidMount() {
     fetch("http://localhost:3001/api/v1/beers")
       .then(resp => resp.json())
@@ -25,6 +29,8 @@ class App extends React.Component {
   }
 
   render() {
+    console.log("App:", this.state);
+
     return (
       <>
         <header className="beer-background-header">
@@ -34,11 +40,21 @@ class App extends React.Component {
         <div className="p-3 container">
           <Switch>
             <Route exact path="/">
-              <Home state={this.state} />
+              <Home
+                {...this.state}
+                state={this.state}
+                handleDelete={this.handleDelete}
+              />
             </Route>
             <Route
               path="/beers/:id"
-              render={e => <BeerShow state={this.state} id={e} />}
+              render={e => (
+                <BeerShow
+                  state={this.state}
+                  id={e}
+                  handleDelete={this.handleDelete}
+                />
+              )}
             />
             <Route
               exact
