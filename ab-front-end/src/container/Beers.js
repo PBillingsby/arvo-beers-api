@@ -66,9 +66,13 @@ export default class Beers extends Component {
   render() {
     return (
       <>
-        <div className="row p-3">
+        <div className="row m-3">
+          <form className="col-sm m-2">
+            <input type="text" placeholder="Find by name" />
+            <input type="submit" />
+          </form>
           <select
-            className="mx-auto"
+            className="col-sm m-2"
             value={"Search by country"}
             onChange={e => this.listByCountry(e)}
           >
@@ -81,10 +85,8 @@ export default class Beers extends Component {
               <option disabled>No countries yet</option>
             )}
           </select>
-        </div>
-        <div className="row p-3">
           <select
-            className="mx-auto"
+            className="col-sm m-2"
             value={"Search by variety"}
             onChange={e => this.listByType(e)}
           >
@@ -101,8 +103,7 @@ export default class Beers extends Component {
 
         <h1 className="text-center">{this.state.selectedText}</h1>
 
-        <div className="row">
-          {console.log(this.state)}
+        <div className="col">
           {this.state.selectedBeers.map(beer => (
             <Beer key={beer.id} handleDelete={this.handleDelete} beer={beer} />
           ))}
