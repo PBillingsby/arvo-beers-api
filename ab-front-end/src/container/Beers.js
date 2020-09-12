@@ -14,6 +14,7 @@ export default class Beers extends Component {
     this.setState({
       selectedBeers: this.props.state.beers
     });
+    // window.location.reload();
   }
 
   handleDelete = id => {
