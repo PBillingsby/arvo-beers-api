@@ -10,6 +10,11 @@ const Home = props => {
       : "No beers yet";
   return (
     <div id="main" className="row">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+        massa nunc, tempus sit amet ante sed, vulputate imperdiet diam. Donec at
+        maximus diam. Donec dignissim, massa et vestibulum ullamcorper
+      </p>
       <div className="col">
         <h2 className="text-center">Random Pick</h2>
         {randomBeer !== "No beers yet" && (

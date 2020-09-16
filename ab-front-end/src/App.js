@@ -31,7 +31,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <header className="beer-background-header">
+        <header className="beer-background-header pt-3">
           <h1 className="header text-center">Arvo Beers</h1>
           <NavBar />
         </header>
