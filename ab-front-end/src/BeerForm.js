@@ -64,6 +64,13 @@ class BeerForm extends Component {
     });
   };
 
+  handleRating = event => {
+    this.setState({
+      rating: event.target.__reactEventHandlers$sq39xp74tw.value
+    });
+    console.log(this.state.rating);
+  };
+
   render() {
     return (
       <>
@@ -123,8 +130,8 @@ class BeerForm extends Component {
               step="0.1"
               placeholder="%"
             />
-            <label>Rating</label>
-            <input
+            <p>Rating</p>
+            {/* <input
               type="number"
               onChange={this.handleChange}
               className="form-control"
@@ -132,7 +139,23 @@ class BeerForm extends Component {
               max="5"
               name="rating"
               placeholder="Rating"
-            />
+            /> */}
+
+            <label value="1" onClick={e => this.handleRating(e)}>
+              ☆
+            </label>
+            <label value="2" onClick={this.handleRating}>
+              ☆
+            </label>
+            <label value="3" onClick={this.handleRating}>
+              ☆
+            </label>
+            <label value="4" onClick={this.handleRating}>
+              ☆
+            </label>
+            <label value="5" onClick={this.handleRating}>
+              ☆
+            </label>
 
             <div className="row-md">
               <label>Notes</label>

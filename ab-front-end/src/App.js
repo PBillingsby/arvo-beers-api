@@ -46,9 +46,12 @@ class App extends React.Component {
               />
             </Route>
 
-            <Route path="/beers/new">
-              <NewBeer state={this.state} />
-            </Route>
+            <Route
+              path="/beers/new"
+              component={e => <NewBeer state={this.state} />}
+            />
+            {/* <NewBeer state={this.state} />
+            </Route> */}
 
             <Route
               path="/beers/:id"

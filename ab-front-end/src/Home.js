@@ -1,6 +1,6 @@
 import React from "react";
 
-import BeerForm from "./BeerForm";
+// import BeerForm from "./BeerForm";
 import Beer from "./Beer";
 
 const Home = props => {
