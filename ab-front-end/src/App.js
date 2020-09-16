@@ -35,7 +35,7 @@ class App extends React.Component {
           <h1 className="header text-center">Arvo Beers</h1>
           <NavBar />
         </header>
-        <div className="p-3 container">
+        <div className="p-3 mb-3 container">
           <Switch>
             <Route exact path="/">
               <Home

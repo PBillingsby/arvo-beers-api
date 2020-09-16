@@ -7,7 +7,9 @@ body {
   background-position-y: 14vh;
 }
 .container {
-  background-color: #f6ab31;
+  background-color: rgba(246, 171, 49, 0.75);
+  border-radius: 4px;
+  box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.4);
 }
 .beer-background-header {
   height: 20vh;
@@ -35,10 +37,13 @@ header h1 {
 
 .link-style:hover {
   text-decoration: none;
-
   color: rgb(255, 172, 46);
 }
 .link-style a:hover {
   background-size: 10%;
   background-image: url("https://www.nicepng.com/png/detail/82-825297_beer-png-transparent-image-beer-mug-transparent-background.png") !important;
+}
+
+.card {
+  background-color: rgb(255, 172, 46) !important;
 }
