@@ -7,7 +7,6 @@ const BeerShow = props => {
   let beer = props.state.beers.find(
     beer => beer.id === parseInt(props.id.match.params.id)
   );
-
   let imgSrc = beer.avatar_url
     ? beer.avatar_url[0]
     : "https://yw553ftvhw1iqegz29fycoyw-wpengine.netdna-ssl.com/wp-content/uploads/2017/09/beer-16-9.jpg";

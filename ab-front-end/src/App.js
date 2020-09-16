@@ -16,7 +16,7 @@ class App extends React.Component {
   handleDelete = id => {
     fetch(`http://localhost:3001/api/v1/beers/${id}`, {
       method: "DELETE"
-    }).then(resp => window.history.back());
+    }).then(resp => window.location.reload(), window.history.back());
   };
   componentDidMount() {
     fetch("http://localhost:3001/api/v1/beers")
