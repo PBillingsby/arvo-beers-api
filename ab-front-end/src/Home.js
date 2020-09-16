@@ -21,9 +21,6 @@ const Home = props => {
           <Beer beer={randomBeer} handleDelete={props.handleDelete} />
         )}
       </div>
-      <div className="col">
-        <BeerForm />
-      </div>
     </div>
   );
 };

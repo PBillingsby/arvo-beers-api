@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Beers from "./container/Beers";
 import BeerShow from "./BeerShow";
+import NewBeer from "./NewBeer";
 import Home from "./Home";
 
 class App extends React.Component {
@@ -44,6 +45,11 @@ class App extends React.Component {
                 handleDelete={this.handleDelete}
               />
             </Route>
+
+            <Route path="/beers/new">
+              <NewBeer state={this.state} />
+            </Route>
+
             <Route
               path="/beers/:id"
               render={e => (

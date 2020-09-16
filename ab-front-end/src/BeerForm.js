@@ -54,7 +54,7 @@ class BeerForm extends Component {
       .then(resp => resp.json())
       .then(beer => {
         this.setState({ beer: beer });
-        window.location.reload();
+        window.location.href = "http://localhost:3000/beers";
       });
   };
 

@@ -14,6 +14,13 @@ const NavBar = () => {
       <NavLink
         className="link-style"
         activeStyle={{ color: "rgb(255, 172, 46)" }}
+        to="/beers/new"
+      >
+        Add Beer
+      </NavLink>
+      <NavLink
+        className="link-style"
+        activeStyle={{ color: "rgb(255, 172, 46)" }}
         to="/beers"
       >
         Beers
