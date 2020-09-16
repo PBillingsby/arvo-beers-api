@@ -2,21 +2,43 @@
 
 body {
   font-family: Montserrat;
+  background-image: url("https://www.jing.fm/clipimg/detail/185-1853855_water-bubbles-transparent-png-transparent-background-bubbles-png.png");
+  background-position-x: 11vw;
+  background-position-y: 14vh;
 }
-
+.container {
+  background-color: #f6ab31;
+}
 .beer-background-header {
   height: 20vh;
-  background-image: url("https://images.fineartamerica.com/images-medium-large-5/beer-pint-glass-hand-tap-retro-aloysius-patrimonio.jpg");
+  background-image: url("./images/beer-logo.png");
   background-size: 8%;
   background-repeat: no-repeat;
   background-position-x: 24vw;
 }
 
 header h1 {
+  margin-bottom: 0;
   font-family: Merriweather;
   font-size: 500% !important;
   color: rgb(255, 172, 46) !important;
   letter-spacing: 0.5rem;
   text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
+}
+
+.link-style {
+  font-size: 1.5em;
+  margin-right: 50px;
+  color: #815533;
+}
+
+.link-style:hover {
+  text-decoration: none;
+
+  color: rgb(255, 172, 46);
+}
+.link-style a:hover {
+  background-size: 10%;
+  background-image: url("https://www.nicepng.com/png/detail/82-825297_beer-png-transparent-image-beer-mug-transparent-background.png") !important;
 }

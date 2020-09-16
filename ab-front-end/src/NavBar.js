@@ -3,10 +3,19 @@ import { NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
     <div className="text-center">
-      <NavLink className="mr-5" activeStyle={{ color: "#D2691E" }} to="/">
+      <NavLink
+        exact
+        className="link-style"
+        activeStyle={{ color: "rgb(255, 172, 46)" }}
+        to="/"
+      >
         Home
       </NavLink>
-      <NavLink className="mr-5" activeStyle={{ color: "#D2691E" }} to="/beers">
+      <NavLink
+        className="link-style"
+        activeStyle={{ color: "rgb(255, 172, 46)" }}
+        to="/beers"
+      >
         Beers
       </NavLink>
     </div>
