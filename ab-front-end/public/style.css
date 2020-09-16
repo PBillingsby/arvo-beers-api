@@ -44,6 +44,7 @@ header h1 {
   background-image: url("https://www.nicepng.com/png/detail/82-825297_beer-png-transparent-image-beer-mug-transparent-background.png") !important;
 }
 
-.card {
+.card,
+.main-info {
   background-color: rgb(255, 172, 46) !important;
 }
