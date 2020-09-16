@@ -11,9 +11,11 @@ export default class Beers extends Component {
   }
 
   componentDidMount() {
+    console.log("props", this.props);
     this.setState({
       selectedBeers: this.props.state.beers
     });
+    console.log("state", this.state.selectedBeers);
     // window.location.reload();
   }
 
@@ -25,7 +27,7 @@ export default class Beers extends Component {
 
   listByCountry = e => {
     this.setState({
-      selectedBeers: this.props.state.beers.filter(
+      selectedBeers: this.state.selectedBeers.filter(
         beer => beer.country === e.target.value
       ),
       selectedText: e.target.value + " Beers"
@@ -34,7 +36,7 @@ export default class Beers extends Component {
 
   listByType = e => {
     this.setState({
-      selectedBeers: this.props.state.beers.filter(
+      selectedBeers: this.state.selectedBeers.filter(
         beer => beer.beer_type === e.target.value
       ),
       selectedText: e.target.value + " Beers"
@@ -42,7 +44,7 @@ export default class Beers extends Component {
   };
 
   setCountryOptions() {
-    return [...new Set(this.props.state.beers.map(beer => beer.country))].map(
+    return [...new Set(this.state.selectedBeers.map(beer => beer.country))].map(
       countryOption => {
         return (
           <option key={countryOption} defaultValue={countryOption}>
@@ -53,15 +55,15 @@ export default class Beers extends Component {
     );
   }
   setTypeOptions() {
-    return [...new Set(this.props.state.beers.map(beer => beer.beer_type))].map(
-      typeOption => {
-        return (
-          <option key={typeOption} defaultValue={typeOption}>
-            {typeOption}
-          </option>
-        );
-      }
-    );
+    return [
+      ...new Set(this.state.selectedBeers.map(beer => beer.beer_type))
+    ].map(typeOption => {
+      return (
+        <option key={typeOption} defaultValue={typeOption}>
+          {typeOption}
+        </option>
+      );
+    });
   }
 
   render() {

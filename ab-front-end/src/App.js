@@ -29,8 +29,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("App:", this.state);
-
     return (
       <>
         <header className="beer-background-header">
@@ -59,7 +57,7 @@ class App extends React.Component {
             <Route
               exact
               path="/beers"
-              render={() => <Beers state={this.state} />}
+              component={() => <Beers state={this.state} />}
             />
           </Switch>
         </div>
