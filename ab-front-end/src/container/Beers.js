@@ -11,12 +11,9 @@ export default class Beers extends Component {
   }
 
   componentDidMount() {
-    console.log("props", this.props);
     this.setState({
       selectedBeers: this.props.state.beers
     });
-    console.log("state", this.state.selectedBeers);
-    // window.location.reload();
   }
 
   handleDelete = id => {
@@ -27,7 +24,7 @@ export default class Beers extends Component {
 
   listByCountry = e => {
     this.setState({
-      selectedBeers: this.state.selectedBeers.filter(
+      selectedBeers: this.props.state.beers.filter(
         beer => beer.country === e.target.value
       ),
       selectedText: e.target.value + " Beers"
@@ -36,7 +33,7 @@ export default class Beers extends Component {
 
   listByType = e => {
     this.setState({
-      selectedBeers: this.state.selectedBeers.filter(
+      selectedBeers: this.props.state.beers.filter(
         beer => beer.beer_type === e.target.value
       ),
       selectedText: e.target.value + " Beers"
@@ -44,7 +41,7 @@ export default class Beers extends Component {
   };
 
   setCountryOptions() {
-    return [...new Set(this.state.selectedBeers.map(beer => beer.country))].map(
+    return [...new Set(this.props.state.beers.map(beer => beer.country))].map(
       countryOption => {
         return (
           <option key={countryOption} defaultValue={countryOption}>
@@ -55,23 +52,32 @@ export default class Beers extends Component {
     );
   }
   setTypeOptions() {
-    return [
-      ...new Set(this.state.selectedBeers.map(beer => beer.beer_type))
-    ].map(typeOption => {
-      return (
-        <option key={typeOption} defaultValue={typeOption}>
-          {typeOption}
-        </option>
-      );
-    });
+    return [...new Set(this.props.state.beers.map(beer => beer.beer_type))].map(
+      typeOption => {
+        return (
+          <option key={typeOption} defaultValue={typeOption}>
+            {typeOption}
+          </option>
+        );
+      }
+    );
   }
+
+  findByName = e => {
+    e.preventDefault();
+    this.setState({
+      selectedBeers: this.props.state.beers.filter(
+        beer => beer.name === e.target.query.value
+      )
+    });
+  };
 
   render() {
     return (
       <>
         <div className="row m-3">
-          <form className="col-sm m-2">
-            <input type="text" placeholder="Find by name" />
+          <form onSubmit={this.findByName} className="col-sm m-2">
+            <input type="text" name="query" placeholder="Find by name" />
             <input type="submit" />
           </form>
           <select

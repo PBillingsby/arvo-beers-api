@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const BeerShow = props => {
-  console.log("Beer Show:", props);
   let beer = props.state.beers.find(
     beer => beer.id === parseInt(props.id.match.params.id)
   );

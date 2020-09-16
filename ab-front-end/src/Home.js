@@ -4,8 +4,6 @@ import BeerForm from "./BeerForm";
 import Beer from "./Beer";
 
 const Home = props => {
-  console.log("Home:", props);
-
   let randomBeer =
     props.state.beers.length > 0
       ? props.state.beers[Math.floor(Math.random() * props.state.beers.length)]
