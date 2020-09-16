@@ -65,21 +65,30 @@ export default class Beers extends Component {
 
   findByName = e => {
     e.preventDefault();
-    this.setState({
-      selectedBeers: this.props.state.beers.filter(
-        beer => beer.name === e.target.query.value
-      )
-    });
+    let foundBeers = this.props.state.beers.filter(
+      beer => beer.name === e.target.query.value
+    );
+    if (foundBeers.length > 0) {
+      this.setState({
+        selectedBeers: foundBeers,
+        selectedText: ""
+      });
+    } else {
+      this.setState({
+        selectedBeers: this.props.state.beers,
+        selectedText: "No beer found with that name"
+      });
+    }
   };
 
   render() {
     return (
       <>
-        <div className="row m-3">
-          <form onSubmit={this.findByName} className="col-sm m-2">
-            <input type="text" name="query" placeholder="Find by name" />
-            <input type="submit" />
-          </form>
+        <form onSubmit={this.findByName} className="text-center m-2">
+          <input type="text" name="query" placeholder="Find by name" />
+          <input type="submit" />
+        </form>
+        <div className="row w-50 mx-auto">
           <select
             className="col-sm m-2"
             value={"Search by country"}
