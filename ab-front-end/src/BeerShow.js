@@ -11,7 +11,7 @@ const BeerShow = props => {
     : "https://yw553ftvhw1iqegz29fycoyw-wpengine.netdna-ssl.com/wp-content/uploads/2017/09/beer-16-9.jpg";
   let starsArr = [];
   for (let i = 0; i < beer.rating; i++) {
-    starsArr.push(<FontAwesomeIcon icon={faStar} style={{ color: "gold" }} />);
+    starsArr.push(<FontAwesomeIcon icon={faStar} style={{ color: "white" }} />);
   }
   return (
     <div key={beer.id} className="text-center">
@@ -20,10 +20,12 @@ const BeerShow = props => {
         by {beer.brewery_name} - {beer.country}
       </p>
       <img src={imgSrc} style={{ maxWidth: "20rem" }} />
+      <br />
+      <span>{starsArr}</span>
+
       <p>
         {beer.beer_type} - {beer.abv}%
       </p>
-      <span>{starsArr}</span>
       <p>Notes: {beer.notes}</p>
       <button id={beer.id} onClick={id => props.handleDelete(beer.id)}>
         Delete

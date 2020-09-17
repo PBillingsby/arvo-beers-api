@@ -50,12 +50,10 @@ class App extends React.Component {
               path="/beers/new"
               component={e => <NewBeer state={this.state} />}
             />
-            {/* <NewBeer state={this.state} />
-            </Route> */}
 
             <Route
               path="/beers/:id"
-              render={e => (
+              component={e => (
                 <BeerShow
                   state={this.state}
                   id={e}
