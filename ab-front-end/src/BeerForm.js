@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 
+import StarRatingComponent from "react-star-rating-component";
+
 class BeerForm extends Component {
   constructor(props) {
     super(props);
@@ -64,11 +66,10 @@ class BeerForm extends Component {
     });
   };
 
-  handleRating = event => {
+  handleRating = rating => {
     this.setState({
-      rating: event.target.__reactEventHandlers$sq39xp74tw.value
+      rating: rating
     });
-    console.log(this.state.rating);
   };
 
   render() {
@@ -131,31 +132,12 @@ class BeerForm extends Component {
               placeholder="%"
             />
             <p>Rating</p>
-            {/* <input
-              type="number"
-              onChange={this.handleChange}
-              className="form-control"
-              min="0"
-              max="5"
-              name="rating"
-              placeholder="Rating"
-            /> */}
 
-            <label value="1" onClick={e => this.handleRating(e)}>
-              ☆
-            </label>
-            <label value="2" onClick={this.handleRating}>
-              ☆
-            </label>
-            <label value="3" onClick={this.handleRating}>
-              ☆
-            </label>
-            <label value="4" onClick={this.handleRating}>
-              ☆
-            </label>
-            <label value="5" onClick={this.handleRating}>
-              ☆
-            </label>
+            <StarRatingComponent
+              starCount={5}
+              onStarClick={this.handleRating}
+              activeColor="#ffd700"
+            />
 
             <div className="row-md">
               <label>Notes</label>

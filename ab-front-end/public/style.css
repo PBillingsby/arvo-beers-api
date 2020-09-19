@@ -11,6 +11,9 @@ body {
   border-radius: 4px;
   box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.4);
 }
+.header {
+  /* ADD BEER FOAM HERE */
+}
 .beer-background-header {
   height: 20vh;
   background-image: url("./images/beer-logo.png");
@@ -47,4 +50,10 @@ header h1 {
 .card,
 .main-info {
   background-color: rgb(255, 172, 46) !important;
+}
+
+@media (max-width: 750px) {
+  .beerContainer {
+    display: flex;
+  }
 }

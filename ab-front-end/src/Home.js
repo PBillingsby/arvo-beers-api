@@ -1,6 +1,5 @@
 import React from "react";
 
-// import BeerForm from "./BeerForm";
 import Beer from "./Beer";
 
 const Home = props => {
@@ -12,7 +11,7 @@ const Home = props => {
     <div id="main" className="row p-3">
       <div className="col pt-2 main-info card">
         <span>
-          <h4>It's time to knock off work</h4>
+          <h4 className="text-center">It's time to knock off work</h4>
           <p>
             We've all been there. You finish work after a hard day, pick up a
             beer or 6 on the way home, drink them, like them and then never buy
@@ -21,7 +20,7 @@ const Home = props => {
         </span>
 
         <span>
-          <h4>Time for that to change</h4>
+          <h4 className="text-center">Time for that to change</h4>
           <p>
             With Arvo Beers, we won't allow you to forget. Every time you buy a
             new beer, upload it here, rate it, and give yourself the option to
@@ -29,7 +28,7 @@ const Home = props => {
           </p>
         </span>
         <span>
-          <h4>Giving you options</h4>
+          <h4 className="text-center">Giving you options</h4>
           <p>
             Arvo Beers allows you to find beers by name, by country of origin,
             and by style. If you want a Mexican lager, with the click of a mouse
@@ -39,10 +38,14 @@ const Home = props => {
       </div>
 
       <div className="col">
-        <h2 className="text-center">Random Pick</h2>
+        <h4 className="text-center">Random Pick</h4>
         {randomBeer !== "No beers yet" && (
           <Beer beer={randomBeer} handleDelete={props.handleDelete} />
         )}
+        <p className="text-center">
+          You have {props.beers.length} beers in your database. Click
+          <a href="/beers"> here</a> to view more.
+        </p>
       </div>
     </div>
   );

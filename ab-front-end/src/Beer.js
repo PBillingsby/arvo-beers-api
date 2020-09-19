@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+// PRESENTATIONAL
 const Beer = props => {
   const { id, name, brewery_name, avatar_url } = props.beer;
   let imgSrc = avatar_url

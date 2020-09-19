@@ -32,10 +32,13 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <header className="beer-background-header pt-3">
-          <h1 className="header text-center">Arvo Beers</h1>
-          <NavBar />
-        </header>
+        <div className="header">
+          <header className="beer-background-header pt-3">
+            <h1 className="header text-center">Arvo Beers</h1>
+            <NavBar />
+          </header>
+        </div>
+
         <div className="p-3 mb-3 container">
           <Switch>
             <Route exact path="/">
