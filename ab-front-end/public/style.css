@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&family=Lato&display=swap");
 
 body {
-  font-family: Montserrat;
+  font-family: Lato;
   background-image: url("https://www.jing.fm/clipimg/detail/185-1853855_water-bubbles-transparent-png-transparent-background-bubbles-png.png");
   background-position-x: 11vw;
   background-position-y: 14vh;
@@ -12,7 +12,7 @@ body {
   box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.4);
 }
 .header {
-  /* ADD BEER FOAM HERE */
+  font-family: Raleway;
 }
 .beer-background-header {
   height: 20vh;
@@ -24,7 +24,7 @@ body {
 
 header h1 {
   margin-bottom: 0;
-  font-family: Merriweather;
+  font-family: Raleway;
   font-size: 500% !important;
   color: rgb(255, 172, 46) !important;
   letter-spacing: 0.5rem;

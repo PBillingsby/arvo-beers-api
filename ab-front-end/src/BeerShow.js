@@ -18,9 +18,8 @@ const BeerShow = props => {
   return (
     <div key={beer.id} className="text-center">
       <h2 className="text-center">{beer.name}</h2>
-      <p>
-        by {beer.brewery_name} - {beer.country}
-      </p>
+      <p>by {beer.brewery_name}</p>
+      <p>{beer.country}</p>
       <img src={imgSrc} style={{ maxWidth: "20rem" }} />
       <br />
       <span>{starsArr}</span>
@@ -29,10 +28,19 @@ const BeerShow = props => {
         {beer.beer_type} - {beer.abv}%
       </p>
       <p>Notes: {beer.notes}</p>
-      <button id={beer.id} onClick={id => props.handleDelete(beer.id)}>
+      <button
+        id={beer.id}
+        className="m-1 border border-dark btn btn-light"
+        onClick={id => props.handleDelete(beer.id)}
+      >
         Delete
       </button>
-      <button onClick={() => window.history.back()}>Back</button>
+      <button
+        className="m-1 border border-dark btn btn-light"
+        onClick={() => window.history.back()}
+      >
+        Back
+      </button>
     </div>
   );
 };

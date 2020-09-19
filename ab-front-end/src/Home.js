@@ -44,7 +44,7 @@ const Home = props => {
         )}
         <p className="text-center">
           You have {props.beers.length} beers in your database. Click
-          <a href="/beers"> here</a> to view more.
+          <a href="/beers"> here</a> to view.
         </p>
       </div>
     </div>

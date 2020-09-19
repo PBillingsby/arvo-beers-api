@@ -75,7 +75,7 @@ class BeerForm extends Component {
   render() {
     return (
       <>
-        <h2 className="text-center">Add Beer</h2>
+        <h4 className="text-center">Add Beer</h4>
 
         <form
           className="row p-2 mx-auto border border-light"
@@ -136,7 +136,8 @@ class BeerForm extends Component {
             <StarRatingComponent
               starCount={5}
               onStarClick={this.handleRating}
-              activeColor="#ffd700"
+              starColor="white"
+              emptyStarColor="black"
             />
 
             <div className="row-md">
