@@ -8,11 +8,11 @@ import NewBeer from "./NewBeer";
 import Home from "./Home";
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      beers: []
-    };
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   beers: []
+    // };
   }
   handleDelete = id => {
     fetch(`http://localhost:3001/api/v1/beers/${id}`, {
@@ -20,12 +20,13 @@ class App extends React.Component {
     }).then(resp => window.location.reload(), window.history.back());
   };
   componentDidMount() {
+    debugger;
     fetch("http://localhost:3001/api/v1/beers")
       .then(resp => resp.json())
-      .then(beer => {
-        this.setState({
-          beers: beer
-        });
+      .then(beers => {
+        // props.setState({
+        //   beers: beers
+        // });
       });
   }
 

@@ -3,7 +3,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-// PRESENTATIONAL
+// PRESENTATIONAL;
 const BeerShow = props => {
   let beer = props.state.beers.find(
     beer => beer.id === parseInt(props.id.match.params.id)
@@ -23,7 +23,6 @@ const BeerShow = props => {
       <img src={imgSrc} style={{ maxWidth: "20rem" }} />
       <br />
       <span>{starsArr}</span>
-
       <p>
         {beer.beer_type} - {beer.abv}%
       </p>

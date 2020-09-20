@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-
+import { addBeer } from "./actions/beers";
+import { connect } from "react-redux";
 import StarRatingComponent from "react-star-rating-component";
 
 class BeerForm extends Component {
@@ -47,6 +48,7 @@ class BeerForm extends Component {
   };
 
   handlePhotoChange = (state, beer) => {
+    // SECOND FETCH TO UPLOAD IMAGE WITH AFTER INITIAL POST
     const formData = new FormData();
     formData.append("avatar", state.state.avatar);
     fetch(`http://localhost:3001/api/v1/beers/${beer.id}`, {
@@ -55,7 +57,7 @@ class BeerForm extends Component {
     })
       .then(resp => resp.json())
       .then(beer => {
-        this.setState({ beer: beer });
+        this.props.addBeer(beer);
         window.location.href = "http://localhost:3000/beers";
       });
   };
@@ -73,6 +75,7 @@ class BeerForm extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <>
         <h4 className="text-center">Add Beer</h4>
@@ -134,6 +137,7 @@ class BeerForm extends Component {
             <p>Rating</p>
 
             <StarRatingComponent
+              name="rating"
               starCount={5}
               onStarClick={this.handleRating}
               starColor="white"
@@ -169,4 +173,5 @@ class BeerForm extends Component {
     );
   }
 }
-export default withRouter(BeerForm);
+
+export default connect(null, { addBeer })(withRouter(BeerForm));
