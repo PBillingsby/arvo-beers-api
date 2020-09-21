@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-import { addBeer } from "./actions/beers";
-import { connect } from "react-redux";
+
 import StarRatingComponent from "react-star-rating-component";
 
 class BeerForm extends Component {
@@ -57,7 +56,6 @@ class BeerForm extends Component {
     })
       .then(resp => resp.json())
       .then(beer => {
-        this.props.addBeer(beer);
         window.location.href = "http://localhost:3000/beers";
       });
   };
@@ -75,7 +73,6 @@ class BeerForm extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <>
         <h4 className="text-center">Add Beer</h4>
@@ -174,4 +171,4 @@ class BeerForm extends Component {
   }
 }
 
-export default connect(null, { addBeer })(withRouter(BeerForm));
+export default withRouter(BeerForm);

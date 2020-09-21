@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
+import { addBeer, getBeers } from "./actions/beers";
 import NavBar from "./NavBar";
 import Beers from "./container/Beers";
 import BeerShow from "./BeerShow";
@@ -8,12 +10,9 @@ import NewBeer from "./NewBeer";
 import Home from "./Home";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   beers: []
-    // };
-  }
+  // state = {
+  //   beers: []
+  // };
   handleDelete = id => {
     fetch(`http://localhost:3001/api/v1/beers/${id}`, {
       method: "DELETE"
@@ -21,13 +20,7 @@ class App extends React.Component {
   };
   componentDidMount() {
     debugger;
-    fetch("http://localhost:3001/api/v1/beers")
-      .then(resp => resp.json())
-      .then(beers => {
-        // props.setState({
-        //   beers: beers
-        // });
-      });
+    this.props.getBeers();
   }
 
   render() {
@@ -44,22 +37,22 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/">
               <Home
-                {...this.state}
-                state={this.state}
+                {...this.props}
+                state={this.props}
                 handleDelete={this.handleDelete}
               />
             </Route>
 
             <Route
               path="/beers/new"
-              component={e => <NewBeer state={this.state} />}
+              component={e => <NewBeer state={this.props} />}
             />
 
             <Route
               path="/beers/:id"
               component={e => (
                 <BeerShow
-                  state={this.state}
+                  state={this.props}
                   id={e}
                   handleDelete={this.handleDelete}
                 />
@@ -68,7 +61,7 @@ class App extends React.Component {
             <Route
               exact
               path="/beers"
-              component={() => <Beers state={this.state} />}
+              component={() => <Beers state={this.props} />}
             />
           </Switch>
         </div>
@@ -76,6 +69,13 @@ class App extends React.Component {
     );
   }
 }
-export default App;
+// const mapDispatchToProps = (dispatch) => {
+//   return { getBeers: () => dispatch(getBeers()) }
+// }
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(mapStateToProps, { getBeers, addBeer })(App);
 
 // window.history.back() .forward() for previous pages
