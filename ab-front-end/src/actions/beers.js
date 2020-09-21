@@ -31,5 +31,9 @@ export const deleteBeer = id => {
 };
 
 export const getCountry = country => {
-  return { type: "GET_COUNTRY", payload: country}
-}
+  return { type: "GET_COUNTRY", payload: country };
+};
+
+export const getType = type => {
+  return { type: "GET_TYPE", payload: type };
+};

@@ -18,24 +18,19 @@ export default class Beers extends Component {
   };
 
   listByType = e => {
-    this.setState({
-      selectedBeers: this.props.state.beers.filter(
-        beer => beer.beer_type === e.target.value
-      ),
-      selectedText: e.target.value + " Beers"
-    });
+    this.props.state.getType(e.target.value);
   };
 
   setCountryOptions() {
-    return [
-      ...new Set(this.props.state.selectedBeers.map(beer => beer.country))
-    ].map(countryOption => {
-      return (
-        <option key={countryOption} defaultValue={countryOption}>
-          {countryOption}
-        </option>
-      );
-    });
+    return [...new Set(this.props.state.beers.map(beer => beer.country))].map(
+      countryOption => {
+        return (
+          <option key={countryOption} defaultValue={countryOption}>
+            {countryOption}
+          </option>
+        );
+      }
+    );
   }
   setTypeOptions() {
     return [...new Set(this.props.state.beers.map(beer => beer.beer_type))].map(

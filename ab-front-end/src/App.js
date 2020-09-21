@@ -2,7 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { addBeer, getBeers, deleteBeer, getCountry } from "./actions/beers";
+import {
+  addBeer,
+  getBeers,
+  deleteBeer,
+  getCountry,
+  getType
+} from "./actions/beers";
 import NavBar from "./NavBar";
 import Beers from "./container/Beers";
 import BeerShow from "./BeerShow";
@@ -69,5 +75,6 @@ export default connect(mapStateToProps, {
   getBeers,
   addBeer,
   deleteBeer,
-  getCountry
+  getCountry,
+  getType
 })(App);

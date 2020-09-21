@@ -28,6 +28,14 @@ export default function beerReducer(
         ),
         selectedText: action.payload + " Beers"
       };
+    case "GET_TYPE":
+      return {
+        ...state,
+        selectedBeers: state.beers.filter(
+          beer => beer.beer_type === action.payload
+        ),
+        selectedText: action.payload + " Beers"
+      };
     default:
       return state;
   }
