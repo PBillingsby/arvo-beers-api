@@ -2,15 +2,12 @@ import React, { Component } from "react";
 
 import Beer from "../Beer";
 export default class Beers extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedBeers: [],
-      selectedText: ""
-    };
-  }
-  // componentDidMount() {
-  //   this.props.state.getBeers();
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     selectedBeers: [],
+  //     selectedText: ""
+  //   };
   // }
 
   listByCountry = e => {
@@ -19,6 +16,11 @@ export default class Beers extends Component {
 
   listByType = e => {
     this.props.state.getType(e.target.value);
+  };
+
+  findByName = e => {
+    e.preventDefault();
+    this.props.state.getByName(e.target.query.value);
   };
 
   setCountryOptions() {
@@ -43,25 +45,6 @@ export default class Beers extends Component {
       }
     );
   }
-
-  findByName = e => {
-    e.preventDefault();
-    this.props.state.getByName(e.target.query.value);
-    // let foundBeers = this.props.state.beers.filter(
-    //   beer => beer.name === e.target.query.value
-    // );
-    // if (foundBeers.length > 0) {
-    //   this.setState({
-    //     selectedBeers: foundBeers,
-    //     selectedText: ""
-    //   });
-    // } else {
-    //   this.setState({
-    //     selectedBeers: this.props.state.beers,
-    //     selectedText: "No beer found with that name"
-    //   });
-    // }
-  };
 
   render() {
     return (

@@ -22,17 +22,18 @@ const Home = props => {
         <span>
           <h4 className="text-center">Time for that to change</h4>
           <p>
-            With Arvo Beers, we won't allow you to forget. Every time you buy a
-            new beer, upload it here, rate it, and give yourself the option to
-            choose your next beer based on previous selections!
+            With Arvo Beers (Australian for afternoon beers), we won't allow you
+            to forget. Every time you buy a new beer, upload it here, rate it,
+            and give yourself the option to choose your next beer based on
+            previous selections!
           </p>
         </span>
         <span>
           <h4 className="text-center">Giving you options</h4>
           <p>
             Arvo Beers allows you to find beers by name, by country of origin,
-            and by style. If you want a Mexican lager, with the click of a mouse
-            you can get all Mexican lager beers you've tried
+            and by style. If you want a lager, with the click of a mouse you can
+            get all lager beers you've tried
           </p>
         </span>
       </div>
