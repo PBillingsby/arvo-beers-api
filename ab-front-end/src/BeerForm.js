@@ -21,7 +21,9 @@ class BeerForm extends Component {
     for (let key in this.state) {
       formData.append(key, this.state[key]);
     }
-    formData.append("avatar", e.target.avatar.files[0]);
+    if (e.target.avatar.files[0]) {
+      formData.append("avatar", e.target.avatar.files[0]);
+    }
     this.props.state.addBeer(formData);
   };
 
