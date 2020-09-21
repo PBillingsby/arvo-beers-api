@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { addBeer, getBeers, deleteBeer } from "./actions/beers";
+import { addBeer, getBeers, deleteBeer, getCountry } from "./actions/beers";
 import NavBar from "./NavBar";
 import Beers from "./container/Beers";
 import BeerShow from "./BeerShow";
@@ -60,13 +60,14 @@ class App extends React.Component {
     );
   }
 }
-// const mapDispatchToProps = (dispatch) => {
-//   return { getBeers: () => dispatch(getBeers()) }
-// }
+
 const mapStateToProps = state => {
   return state;
 };
 
-export default connect(mapStateToProps, { getBeers, addBeer, deleteBeer })(App);
-
-// window.history.back() .forward() for previous pages
+export default connect(mapStateToProps, {
+  getBeers,
+  addBeer,
+  deleteBeer,
+  getCountry
+})(App);

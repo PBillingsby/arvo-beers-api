@@ -29,3 +29,7 @@ export const deleteBeer = id => {
     }).then(dispatch({ type: "DELETE_BEER", payload: id }));
   };
 };
+
+export const getCountry = country => {
+  return { type: "GET_COUNTRY", payload: country}
+}

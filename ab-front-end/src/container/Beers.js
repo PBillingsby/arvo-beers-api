@@ -9,26 +9,12 @@ export default class Beers extends Component {
       selectedText: ""
     };
   }
-
-  componentDidMount() {
-    this.setState({
-      selectedBeers: this.props.state.beers
-    });
-  }
-
-  handleDelete = id => {
-    fetch(`http://localhost:3001/api/v1/beers/${id}`, {
-      method: "DELETE"
-    }).then(resp => window.location.reload());
-  };
+  // componentDidMount() {
+  //   this.props.state.getBeers();
+  // }
 
   listByCountry = e => {
-    this.setState({
-      selectedBeers: this.props.state.beers.filter(
-        beer => beer.country === e.target.value
-      ),
-      selectedText: e.target.value + " Beers"
-    });
+    this.props.state.getCountry(e.target.value);
   };
 
   listByType = e => {
@@ -41,15 +27,15 @@ export default class Beers extends Component {
   };
 
   setCountryOptions() {
-    return [...new Set(this.props.state.beers.map(beer => beer.country))].map(
-      countryOption => {
-        return (
-          <option key={countryOption} defaultValue={countryOption}>
-            {countryOption}
-          </option>
-        );
-      }
-    );
+    return [
+      ...new Set(this.props.state.selectedBeers.map(beer => beer.country))
+    ].map(countryOption => {
+      return (
+        <option key={countryOption} defaultValue={countryOption}>
+          {countryOption}
+        </option>
+      );
+    });
   }
   setTypeOptions() {
     return [...new Set(this.props.state.beers.map(beer => beer.beer_type))].map(
@@ -119,10 +105,10 @@ export default class Beers extends Component {
           </select>
         </div>
 
-        <h1 className="text-center">{this.state.selectedText}</h1>
+        <h1 className="text-center">{this.props.state.selectedText}</h1>
 
         <div className="row beerContainer">
-          {this.state.selectedBeers.map(beer => (
+          {this.props.state.selectedBeers.map(beer => (
             <Beer key={beer.id} handleDelete={this.handleDelete} beer={beer} />
           ))}
         </div>

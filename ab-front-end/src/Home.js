@@ -39,9 +39,7 @@ const Home = props => {
 
       <div className="col">
         <h4 className="text-center">Random Pick</h4>
-        {randomBeer !== "No beers yet" && (
-          <Beer beer={randomBeer} handleDelete={props.handleDelete} />
-        )}
+        {randomBeer !== "No beers yet" && <Beer beer={randomBeer} />}
         <p className="text-center">
           You have {props.beers.length} beers in your database. Click
           <a href="/beers"> here</a> to view.
