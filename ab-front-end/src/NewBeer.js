@@ -2,10 +2,10 @@ import React from "react";
 import BeerForm from "./BeerForm";
 
 // PRESENTATIONAL
-const NewBeer = () => {
+const NewBeer = props => {
   return (
     <div>
-      <BeerForm />
+      <BeerForm state={props.state} />
     </div>
   );
 };

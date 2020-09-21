@@ -1,5 +1,15 @@
-export const addBeer = beer => {
-  return { type: "ADD_BEER", payload: beer };
+export const addBeer = beerData => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/v1/beers`, {
+      method: "POST",
+      body: beerData
+    })
+      .then(resp => resp.json())
+      .then(beer => {
+        dispatch({ type: "ADD_BEER", payload: beer });
+        window.location.href = "http://localhost:3000/beers";
+      });
+  };
 };
 
 export const getBeers = () => {

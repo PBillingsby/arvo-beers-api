@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-
 import StarRatingComponent from "react-star-rating-component";
 
 class BeerForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      avatar: "",
       name: "",
       brewery_name: "",
       country: "",
@@ -19,45 +17,12 @@ class BeerForm extends Component {
   }
   handleData = e => {
     e.preventDefault();
-    const avatar = e.target.avatar.files[0];
-
-    this.setState({
-      avatar: avatar
-    });
-
-    fetch("http://localhost:3001/api/v1/beers", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name: this.state.name,
-        brewery_name: this.state.brewery_name,
-        country: this.state.country,
-        beer_type: this.state.beer_type,
-        rating: this.state.rating,
-        notes: this.state.notes,
-        abv: this.state.abv
-      })
-    }).then(resp =>
-      resp.json().then(beer => {
-        this.handlePhotoChange(this, beer);
-      })
-    );
-  };
-
-  handlePhotoChange = (state, beer) => {
-    // SECOND FETCH TO UPLOAD IMAGE WITH AFTER INITIAL POST
-    const formData = new FormData();
-    formData.append("avatar", state.state.avatar);
-    fetch(`http://localhost:3001/api/v1/beers/${beer.id}`, {
-      method: "PUT",
-      body: formData
-    })
-      .then(resp => resp.json())
-      .then(beer => {
-        window.location.href = "http://localhost:3000/beers";
-      });
+    let formData = new FormData();
+    for (let key in this.state) {
+      formData.append(key, this.state[key]);
+    }
+    formData.append("avatar", e.target.avatar.files[0]);
+    this.props.state.addBeer(formData);
   };
 
   handleChange = event => {
