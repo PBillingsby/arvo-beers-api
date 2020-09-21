@@ -8,8 +8,9 @@ export default function beerReducer(
     case "ADD_BEER":
       return { ...state, beers: [...state.beers, action.payload] };
     case "GET_BEERS":
-      debugger;
-      return { ...state, beers: [...state.beers, action.payload] };
+      return { ...state, beers: [...state.beers, ...action.payload] };
+    case "DELETE_BEER":
+      return { ...state, beers: [...state.beers] };
     default:
       return state;
   }

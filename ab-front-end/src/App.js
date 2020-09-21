@@ -10,16 +10,12 @@ import NewBeer from "./NewBeer";
 import Home from "./Home";
 
 class App extends React.Component {
-  // state = {
-  //   beers: []
-  // };
   handleDelete = id => {
     fetch(`http://localhost:3001/api/v1/beers/${id}`, {
       method: "DELETE"
     }).then(resp => window.location.reload(), window.history.back());
   };
   componentDidMount() {
-    debugger;
     this.props.getBeers();
   }
 

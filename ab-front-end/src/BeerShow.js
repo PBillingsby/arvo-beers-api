@@ -15,6 +15,7 @@ const BeerShow = props => {
   for (let i = 0; i < beer.rating; i++) {
     starsArr.push(<FontAwesomeIcon icon={faStar} style={{ color: "white" }} />);
   }
+  console.log(props);
   return (
     <div key={beer.id} className="text-center">
       <h2 className="text-center">{beer.name}</h2>
@@ -30,7 +31,7 @@ const BeerShow = props => {
       <button
         id={beer.id}
         className="m-1 border border-dark btn btn-light"
-        onClick={id => props.handleDelete(beer.id)}
+        onClick={id => props.state.deleteBeer(beer.id)}
       >
         Delete
       </button>
