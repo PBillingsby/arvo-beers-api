@@ -1,15 +1,8 @@
 import React, { Component } from "react";
-
+import CountrySelect from "../presentational/CountrySelect";
+import TypeSelect from "../presentational/TypeSelect";
 import Beer from "../Beer";
 export default class Beers extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     selectedBeers: [],
-  //     selectedText: ""
-  //   };
-  // }
-
   listByCountry = e => {
     this.props.state.getCountry(e.target.value);
   };
@@ -24,26 +17,10 @@ export default class Beers extends Component {
   };
 
   setCountryOptions() {
-    return [...new Set(this.props.state.beers.map(beer => beer.country))].map(
-      countryOption => {
-        return (
-          <option key={countryOption} defaultValue={countryOption}>
-            {countryOption}
-          </option>
-        );
-      }
-    );
+    return <CountrySelect state={this.props.state} />;
   }
   setTypeOptions() {
-    return [...new Set(this.props.state.beers.map(beer => beer.beer_type))].map(
-      typeOption => {
-        return (
-          <option key={typeOption} defaultValue={typeOption}>
-            {typeOption}
-          </option>
-        );
-      }
-    );
+    return <TypeSelect state={this.props.state} />;
   }
 
   render() {
