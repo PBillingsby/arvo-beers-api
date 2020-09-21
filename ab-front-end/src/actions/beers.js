@@ -15,7 +15,10 @@ export const getBeers = () => {
 export const deleteBeer = id => {
   return dispatch => {
     return fetch(`http://localhost:3001/api/v1/beers/${id}`, {
-      method: "DELETE"
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
     })
       .then(resp => resp.json())
       .then(dispatch({ type: "DELETE_BEER", payload: null }));

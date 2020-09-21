@@ -51,7 +51,14 @@ header h1 {
 .main-info {
   background-color: rgb(255, 172, 46) !important;
 }
-
+.image-show {
+  position: relative;
+}
+.image-text {
+  position: absolute;
+  top: 50%;
+  left: 17.5%;
+}
 @media (max-width: 750px) {
   .beerContainer {
     display: flex;

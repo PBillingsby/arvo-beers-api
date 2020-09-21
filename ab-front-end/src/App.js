@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { addBeer, getBeers } from "./actions/beers";
+import { addBeer, getBeers, deleteBeer } from "./actions/beers";
 import NavBar from "./NavBar";
 import Beers from "./container/Beers";
 import BeerShow from "./BeerShow";
@@ -72,6 +72,6 @@ const mapStateToProps = state => {
   return state;
 };
 
-export default connect(mapStateToProps, { getBeers, addBeer })(App);
+export default connect(mapStateToProps, { getBeers, addBeer, deleteBeer })(App);
 
 // window.history.back() .forward() for previous pages
