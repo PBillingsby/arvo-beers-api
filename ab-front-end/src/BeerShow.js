@@ -46,7 +46,7 @@ const BeerShow = props => {
       </div>
     );
   } else {
-    return <p>loading</p>;
+    return <p>No beers found</p>;
   }
 };
 
