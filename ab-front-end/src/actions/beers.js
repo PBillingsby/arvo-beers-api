@@ -26,7 +26,10 @@ export const deleteBeer = id => {
   return dispatch => {
     return fetch(`http://localhost:3001/api/v1/beers/${id}`, {
       method: "DELETE"
-    }).then(dispatch({ type: "DELETE_BEER", payload: id }));
+    }).then(
+      dispatch({ type: "DELETE_BEER", payload: id }),
+      (window.location.href = "http://localhost:3000/beers")
+    );
   };
 };
 
