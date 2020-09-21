@@ -7,7 +7,8 @@ import {
   getBeers,
   deleteBeer,
   getCountry,
-  getType
+  getType,
+  getByName
 } from "./actions/beers";
 import NavBar from "./NavBar";
 import Beers from "./container/Beers";
@@ -76,5 +77,6 @@ export default connect(mapStateToProps, {
   addBeer,
   deleteBeer,
   getCountry,
-  getType
+  getType,
+  getByName
 })(App);

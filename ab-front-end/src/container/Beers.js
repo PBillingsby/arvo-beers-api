@@ -46,20 +46,21 @@ export default class Beers extends Component {
 
   findByName = e => {
     e.preventDefault();
-    let foundBeers = this.props.state.beers.filter(
-      beer => beer.name === e.target.query.value
-    );
-    if (foundBeers.length > 0) {
-      this.setState({
-        selectedBeers: foundBeers,
-        selectedText: ""
-      });
-    } else {
-      this.setState({
-        selectedBeers: this.props.state.beers,
-        selectedText: "No beer found with that name"
-      });
-    }
+    this.props.state.getByName(e.target.query.value);
+    // let foundBeers = this.props.state.beers.filter(
+    //   beer => beer.name === e.target.query.value
+    // );
+    // if (foundBeers.length > 0) {
+    //   this.setState({
+    //     selectedBeers: foundBeers,
+    //     selectedText: ""
+    //   });
+    // } else {
+    //   this.setState({
+    //     selectedBeers: this.props.state.beers,
+    //     selectedText: "No beer found with that name"
+    //   });
+    // }
   };
 
   render() {

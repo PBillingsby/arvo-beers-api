@@ -37,3 +37,7 @@ export const getCountry = country => {
 export const getType = type => {
   return { type: "GET_TYPE", payload: type };
 };
+
+export const getByName = name => {
+  return { type: "GET_NAME", payload: name };
+};
