@@ -15,9 +15,11 @@ import Beers from "./container/Beers";
 import BeerShow from "./BeerShow";
 import NewBeer from "./NewBeer";
 import Home from "./Home";
-import Learn from "./Learn";
 
 class App extends React.Component {
+  state = {
+    query: ""
+  };
   componentDidMount() {
     this.props.getBeers();
   }
@@ -62,7 +64,6 @@ class App extends React.Component {
               path="/beers"
               component={() => <Beers state={this.props} />}
             />
-            <Route path="/learn" component={() => <Learn {...this.props} />} />
           </Switch>
         </div>
       </>

@@ -27,13 +27,6 @@ const NavBar = () => {
       >
         Beers
       </NavLink>
-      <NavLink
-        className="link-style"
-        activeStyle={{ color: "rgb(255, 172, 46)" }}
-        to="/learn"
-      >
-        Learn
-      </NavLink>
     </div>
   );
 };
