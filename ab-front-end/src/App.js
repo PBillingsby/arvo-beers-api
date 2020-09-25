@@ -17,9 +17,9 @@ import NewBeer from "./NewBeer";
 import Home from "./Home";
 
 class App extends React.Component {
-  state = {
-    query: ""
-  };
+  // state = {
+  //   query: ""
+  // };
   componentDidMount() {
     this.props.getBeers();
   }

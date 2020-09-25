@@ -3,6 +3,12 @@ import CountrySelect from "../presentational/CountrySelect";
 import TypeSelect from "../presentational/TypeSelect";
 import Beer from "../Beer";
 export default class Beers extends Component {
+  state = {
+    query: ""
+  };
+  handleChange = e => {
+    this.setState({ query: e.target.value });
+  };
   listByCountry = e => {
     this.props.state.getCountry(e.target.value);
   };
@@ -13,7 +19,7 @@ export default class Beers extends Component {
 
   findByName = e => {
     e.preventDefault();
-    this.props.state.getByName(e.target.query.value);
+    this.props.state.getByName(this.state.query);
   };
 
   setCountryOptions() {
@@ -26,7 +32,11 @@ export default class Beers extends Component {
   render() {
     return (
       <>
-        <form onSubmit={this.findByName} className="text-center m-2">
+        <form
+          onSubmit={this.findByName}
+          onChange={this.handleChange}
+          className="text-center m-2"
+        >
           <input type="text" name="query" placeholder="Find by name" />
           <input type="submit" />
         </form>
