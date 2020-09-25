@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CountrySelect from "../presentational/CountrySelect";
 import TypeSelect from "../presentational/TypeSelect";
-import Beer from "../Beer";
+import Beer from "../presentational/Beer";
 export default class Beers extends Component {
   state = {
     query: ""

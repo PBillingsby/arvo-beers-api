@@ -10,11 +10,11 @@ import {
   getType,
   getByName
 } from "./actions/beers";
-import NavBar from "./NavBar";
+import NavBar from "./presentational/NavBar";
 import Beers from "./container/Beers";
-import BeerShow from "./BeerShow";
+import BeerShow from "./presentational/BeerShow";
 import NewBeer from "./NewBeer";
-import Home from "./Home";
+import Home from "./presentational/Home";
 
 class App extends React.Component {
   // state = {
