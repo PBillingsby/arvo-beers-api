@@ -36,7 +36,7 @@ export const getFacts = () => {
     return fetch("http://localhost:3001/api/v1/facts")
       .then(resp => resp.json())
       .then(facts => {
-        dispatch({ type: "GET_FACTS", payload: facts });
+        dispatch({ type: "GET_FACTS", facts });
       });
   };
 };

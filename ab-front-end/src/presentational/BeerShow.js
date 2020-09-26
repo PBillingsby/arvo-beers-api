@@ -23,7 +23,12 @@ const BeerShow = props => {
         <h2>{beer.name}</h2>
         <p>by {beer.brewery_name}</p>
         <p>{beer.country}</p>
-        <img src={imgSrc} alt="beer" style={{ maxWidth: "20rem" }} />
+        <img
+          src={imgSrc}
+          alt="beer"
+          className="shadow-lg border rounded"
+          style={{ maxWidth: "20rem" }}
+        />
         <br />
         <span>{starsArr}</span>
         <p>

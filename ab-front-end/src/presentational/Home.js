@@ -12,14 +12,13 @@ const Home = props => {
     randomBeer = "No beers yet";
   }
   if (props.state.facts.length > 0) {
-    debugger;
     randomFact =
       props.state.facts[Math.floor(Math.random() * props.state.facts.length)];
   }
   console.log(randomFact);
   return (
-    <div id="main" className="row p-3">
-      <div className="col pt-2 main-info card">
+    <div id="main" className="row p-2">
+      <div className="col mx-auto pt-2 main-info card">
         <span>
           <h4 className="text-center">It's time to knock off work</h4>
           <p>
@@ -46,6 +45,12 @@ const Home = props => {
             get all lager beers you've tried
           </p>
         </span>
+        <p className="text-center">
+          <strong>
+            You have {props.beers.length} beers in your database. Click
+            <a href="/beers"> here</a> to view.
+          </strong>
+        </p>
       </div>
 
       <div className="col">
@@ -53,12 +58,18 @@ const Home = props => {
         {randomBeer !== "No beers yet" && <Beer beer={randomBeer} />}
 
         <div className="col">
-          <h4 className="text-center">Random Fact</h4>
+          <h4 className="text-center">Random Beer Fact</h4>
+          {randomFact && (
+            <React.Fragment>
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title text-center">{randomFact.title}</h5>
+                  <p className="card-text">{randomFact.content}</p>
+                </div>
+              </div>
+            </React.Fragment>
+          )}
         </div>
-        <p className="text-center">
-          You have {props.beers.length} beers in your database. Click
-          <a href="/beers"> here</a> to view.
-        </p>
       </div>
     </div>
   );

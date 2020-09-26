@@ -24,7 +24,7 @@ export default function beerReducer(
     case "GET_FACTS":
       return {
         ...state,
-        facts: [...state.facts, action.payload]
+        facts: [...state.facts, ...action.facts]
       };
     case "GET_COUNTRY":
       return {
