@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway&family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&family=Courier+Prime&display=swap");
 
 body {
-  font-family: Lato;
+  font-family: "Courier Prime";
   background-image: url("https://www.jing.fm/clipimg/detail/185-1853855_water-bubbles-transparent-png-transparent-background-bubbles-png.png");
   background-position-x: 11vw;
   background-position-y: 14vh;
@@ -44,7 +44,6 @@ header h1 {
 }
 .link-style a:hover {
   background-size: 10%;
-  background-image: url("https://www.nicepng.com/png/detail/82-825297_beer-png-transparent-image-beer-mug-transparent-background.png") !important;
 }
 
 .card,

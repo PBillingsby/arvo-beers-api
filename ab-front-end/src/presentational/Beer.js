@@ -14,7 +14,7 @@ const Beer = props => {
           src={imgSrc}
           alt="beer"
           style={{ maxWidth: "75%", maxHeight: "20vh" }}
-          className="img-fluid mt-3 img-thumbnail card-image-top"
+          className="img-fluid mt-3 shadow-lg border rounded img-thumbnail card-image-top"
         />
       </Link>
       <div className="card-body">

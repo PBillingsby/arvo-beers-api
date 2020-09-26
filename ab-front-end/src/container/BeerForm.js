@@ -107,30 +107,31 @@ class BeerForm extends Component {
               starColor="white"
               emptyStarColor="black"
             />
-
-            <div className="row-md">
-              <label>Notes</label>
-              <input
-                type="text"
-                onChange={this.handleChange}
-                className="form-control"
-                name="notes"
-                placeholder="Notes"
-              />
+            <div className="mx-auto">
+              <div className="row-md">
+                <label>Notes</label>
+                <input
+                  type="text"
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="notes"
+                  placeholder="Notes"
+                />
+              </div>
+              <div className="custom-file mt-4">
+                <input
+                  type="file"
+                  accept="image/png, image/jpeg"
+                  name="avatar"
+                ></input>
+              </div>
+              <button
+                className="m-2 mx-auto btn btn-secondary btn-lg"
+                type="submit"
+              >
+                Submit
+              </button>
             </div>
-            <div className="custom-file mt-4">
-              <input
-                type="file"
-                accept="image/png, image/jpeg"
-                name="avatar"
-              ></input>
-            </div>
-            <button
-              className="m-2 mx-auto btn btn-secondary btn-lg"
-              type="submit"
-            >
-              Submit
-            </button>
           </div>
         </form>
       </>

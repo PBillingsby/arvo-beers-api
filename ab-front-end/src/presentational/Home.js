@@ -42,7 +42,14 @@ const Home = props => {
           <p>
             Arvo Beers allows you to find beers by name, by country of origin,
             and by style. If you want a lager, with the click of a mouse you can
-            get all lager beers you've tried
+            get all lager beers you've tried.
+          </p>
+        </span>
+        <span>
+          <h4 className="text-center">We'll never be thirsty again</h4>
+          <p>
+            Theres nothing sweeter than an arvo beer, so keep track of your
+            beers, and quench that thirst forever .
           </p>
         </span>
         <p className="text-center">
@@ -54,17 +61,18 @@ const Home = props => {
       </div>
 
       <div className="col">
-        <h4 className="text-center">Random Pick</h4>
+        <h4 className="text-center">Random beer</h4>
         {randomBeer !== "No beers yet" && <Beer beer={randomBeer} />}
 
         <div className="col">
-          <h4 className="text-center">Random Beer Fact</h4>
           {randomFact && (
             <React.Fragment>
+              <h4 className="text-center">Random beer fact #{randomFact.id}</h4>
+
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title text-center">{randomFact.title}</h5>
-                  <p className="card-text">{randomFact.content}</p>
+                  <p>{randomFact.content}</p>
                 </div>
               </div>
             </React.Fragment>
