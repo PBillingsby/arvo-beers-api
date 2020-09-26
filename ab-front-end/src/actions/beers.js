@@ -31,7 +31,15 @@ export const deleteBeer = id => {
       .then(beer => (window.location.href = "http://localhost:3000/beers"));
   };
 };
-
+export const getFacts = () => {
+  return dispatch => {
+    return fetch("http://localhost:3001/api/v1/facts")
+      .then(resp => resp.json())
+      .then(facts => {
+        dispatch({ type: "GET_FACTS", payload: facts });
+      });
+  };
+};
 export const getCountry = country => {
   return { type: "GET_COUNTRY", payload: country };
 };

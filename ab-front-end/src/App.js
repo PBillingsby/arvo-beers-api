@@ -6,6 +6,7 @@ import {
   addBeer,
   getBeers,
   deleteBeer,
+  getFacts,
   getCountry,
   getType,
   getByName
@@ -13,14 +14,12 @@ import {
 import NavBar from "./presentational/NavBar";
 import Beers from "./container/Beers";
 import BeerShow from "./presentational/BeerShow";
-import NewBeer from "./NewBeer";
+import NewBeer from "./presentational/NewBeer";
 import Home from "./presentational/Home";
 
 class App extends React.Component {
-  // state = {
-  //   query: ""
-  // };
   componentDidMount() {
+    this.props.getFacts();
     this.props.getBeers();
   }
 
@@ -79,6 +78,7 @@ export default connect(mapStateToProps, {
   getBeers,
   addBeer,
   deleteBeer,
+  getFacts,
   getCountry,
   getType,
   getByName

@@ -1,6 +1,7 @@
 export default function beerReducer(
   state = {
     beers: [],
+    facts: [],
     selectedBeers: [],
     selectedText: ""
   },
@@ -19,6 +20,11 @@ export default function beerReducer(
       return {
         ...state,
         beers: state.beers.filter(beer => beer.id !== action.payload)
+      };
+    case "GET_FACTS":
+      return {
+        ...state,
+        facts: [...state.facts, action.payload]
       };
     case "GET_COUNTRY":
       return {

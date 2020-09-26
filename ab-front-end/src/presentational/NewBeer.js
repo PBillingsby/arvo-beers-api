@@ -1,5 +1,5 @@
 import React from "react";
-import BeerForm from "./container/BeerForm";
+import BeerForm from "../container/BeerForm";
 
 // PRESENTATIONAL
 const NewBeer = props => {

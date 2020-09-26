@@ -3,10 +3,20 @@ import React from "react";
 import Beer from "./Beer";
 
 const Home = props => {
-  let randomBeer =
-    props.state.beers.length > 0
-      ? props.state.beers[Math.floor(Math.random() * props.state.beers.length)]
-      : "No beers yet";
+  let randomBeer;
+  let randomFact;
+  if (props.state.beers.length > 0) {
+    randomBeer =
+      props.state.beers[Math.floor(Math.random() * props.state.beers.length)];
+  } else {
+    randomBeer = "No beers yet";
+  }
+  if (props.state.facts.length > 0) {
+    debugger;
+    randomFact =
+      props.state.facts[Math.floor(Math.random() * props.state.facts.length)];
+  }
+  console.log(randomFact);
   return (
     <div id="main" className="row p-3">
       <div className="col pt-2 main-info card">
@@ -41,6 +51,10 @@ const Home = props => {
       <div className="col">
         <h4 className="text-center">Random Pick</h4>
         {randomBeer !== "No beers yet" && <Beer beer={randomBeer} />}
+
+        <div className="col">
+          <h4 className="text-center">Random Fact</h4>
+        </div>
         <p className="text-center">
           You have {props.beers.length} beers in your database. Click
           <a href="/beers"> here</a> to view.
