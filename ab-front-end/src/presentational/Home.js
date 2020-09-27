@@ -54,7 +54,13 @@ const Home = props => {
 
       <div className="col">
         <h4 className="text-center">Try this</h4>
-        {randomBeer && <Beer beer={randomBeer} />}
+        {(randomBeer && <Beer beer={randomBeer} />) || (
+          <div className="text-center">
+            <p>
+              No beers yet. Click <a href="/beers/new">here</a> to add some
+            </p>
+          </div>
+        )}
         <div className="col">
           {randomFact && (
             <React.Fragment>
