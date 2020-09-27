@@ -6,6 +6,7 @@ export default class Beers extends Component {
   state = {
     query: ""
   };
+
   handleChange = e => {
     this.setState({ query: e.target.value });
   };

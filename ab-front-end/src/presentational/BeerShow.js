@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -38,7 +40,7 @@ const BeerShow = props => {
         <button
           id={beer.id}
           className="m-1 border border-dark btn btn-light"
-          onClick={id => props.state.deleteBeer(beer.id)}
+          onClick={() => props.state.deleteBeer(beer.id, props.history)}
         >
           Delete
         </button>
@@ -55,4 +57,5 @@ const BeerShow = props => {
   }
 };
 
-export default BeerShow;
+// Use to connect history
+export default connect()(withRouter(BeerShow));
