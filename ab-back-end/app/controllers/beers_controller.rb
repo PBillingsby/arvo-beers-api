@@ -12,11 +12,11 @@ class BeersController < ApplicationController
     render json: beers, methods: [:avatar_url]
   end
 
-  def update
-    beer = Beer.find_by(id: params[:id])
-    beer.avatar.attach(params[:avatar])
-    render json: beer
-  end
+  # def update
+  #   beer = Beer.find_by(id: params[:id])
+  #   beer.avatar.attach(params[:avatar])
+  #   render json: beer
+  # end
 
   def destroy
     beer = Beer.find_by(id: params[:id])

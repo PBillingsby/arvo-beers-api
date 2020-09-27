@@ -4,12 +4,13 @@ class Beer < ApplicationRecord
   include HTTParty
   include Rails.application.routes.url_helpers
   has_one_attached :avatar
-  before_create :scrape_information
+  before_create :has_image?
 
 
-  def scrape_information
-    unparsed_url = HTTParty.get('https://www.ratebeer.com/search?q=victoria+bitter&tab=beer')
-    doc = Nokogiri::HTML(unparsed_url)
+  def has_image? # Adds default beer image if no image attached
+    if !self.avatar.attached?
+      self.avatar.attach(io: File.open(Rails.root.join("public", "stock-beer.jpg")), filename: 'default.jpg' , content_type: "image/jpg")
+    end
   end
 
   def avatar_url
