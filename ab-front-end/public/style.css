@@ -6,6 +6,9 @@ body {
   background-position-x: 11vw;
   background-position-y: 14vh;
 }
+label {
+  padding-top: 10px;
+}
 .container {
   background-color: rgba(246, 171, 49, 0.75);
   border-radius: 4px;

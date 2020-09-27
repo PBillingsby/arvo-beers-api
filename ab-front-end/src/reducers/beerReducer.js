@@ -45,7 +45,8 @@ export default function beerReducer(
     case "GET_NAME":
       return {
         ...state,
-        selectedBeers: state.beers.filter(beer => beer.name === action.payload)
+        selectedBeers: state.beers.filter(beer => beer.name === action.payload),
+        selectedText: ""
       };
     default:
       return state;
