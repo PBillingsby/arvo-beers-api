@@ -53,7 +53,17 @@ const BeerShow = props => {
       </div>
     );
   } else {
-    return <p>loading</p>;
+    return (
+      <div className="text-center">
+        <h4>No beer found</h4>
+        <button
+          className="m-1 border border-dark btn btn-light"
+          onClick={() => window.history.back()}
+        >
+          Back
+        </button>
+      </div>
+    );
   }
 };
 

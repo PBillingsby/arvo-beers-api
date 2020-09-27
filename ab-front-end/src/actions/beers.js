@@ -1,4 +1,3 @@
-import { BrowserRouter } from "react-router";
 export const addBeer = beerData => {
   return dispatch => {
     return fetch(`http://localhost:3001/api/v1/beers`, {
@@ -30,7 +29,9 @@ export const deleteBeer = (id, history) => {
     })
       .then(dispatch({ type: "DELETE_BEER", payload: id }))
       .then(beer => {
+        alert("Beer removed from database");
         history.push("/beers");
+        window.location.reload();
       });
   };
 };

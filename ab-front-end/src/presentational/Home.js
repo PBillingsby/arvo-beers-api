@@ -15,7 +15,6 @@ const Home = props => {
     randomFact =
       props.state.facts[Math.floor(Math.random() * props.state.facts.length)];
   }
-  console.log(randomFact);
   return (
     <div id="main" className="row p-2">
       <div className="col mx-auto pt-2 main-info card">
@@ -62,7 +61,9 @@ const Home = props => {
 
       <div className="col">
         <h4 className="text-center">Random beer</h4>
-        {randomBeer !== "No beers yet" && <Beer beer={randomBeer} />}
+        {(randomBeer !== "No beers yet" && <Beer beer={randomBeer} />) || (
+          <p className="text-center">No beers yet</p>
+        )}
 
         <div className="col">
           {randomFact && (
