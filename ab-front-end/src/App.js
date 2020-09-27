@@ -27,7 +27,6 @@ class App extends React.Component {
     this.props.getFacts();
     this.props.getBeers();
   }
-
   render() {
     return (
       <>

@@ -4,14 +4,11 @@ import { Link } from "react-router-dom";
 // PRESENTATIONAL
 const Beer = props => {
   const { id, name, brewery_name, avatar_url } = props.beer;
-  let imgSrc = avatar_url
-    ? avatar_url[0]
-    : "https://yw553ftvhw1iqegz29fycoyw-wpengine.netdna-ssl.com/wp-content/uploads/2017/09/beer-16-9.jpg";
   return (
     <div className="card m-3 mx-auto" style={{ width: "20vw" }} key={id}>
       <Link className="text-center" to={`/beers/${id}`}>
         <img
-          src={imgSrc}
+          src={avatar_url}
           alt="beer"
           style={{ maxWidth: "75%", maxHeight: "20vh" }}
           className="img-fluid mt-3 shadow-lg border rounded img-thumbnail card-image-top"

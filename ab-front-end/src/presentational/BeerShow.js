@@ -11,9 +11,6 @@ const BeerShow = props => {
     let beer = props.state.beers.find(
       beer => beer.id === parseInt(props.id.match.params.id)
     );
-    let imgSrc = beer.avatar_url
-      ? beer.avatar_url[0]
-      : "https://yw553ftvhw1iqegz29fycoyw-wpengine.netdna-ssl.com/wp-content/uploads/2017/09/beer-16-9.jpg";
     let starsArr = [];
     for (let i = 0; i < beer.rating; i++) {
       starsArr.push(
@@ -26,7 +23,7 @@ const BeerShow = props => {
         <p>by {beer.brewery_name}</p>
         <p>{beer.country}</p>
         <img
-          src={imgSrc}
+          src={beer.avatar_url}
           alt="beer"
           className="shadow-lg border rounded"
           style={{ maxWidth: "20rem" }}
@@ -55,13 +52,7 @@ const BeerShow = props => {
   } else {
     return (
       <div className="text-center">
-        <h4>No beer found</h4>
-        <button
-          className="m-1 border border-dark btn btn-light"
-          onClick={() => window.history.back()}
-        >
-          Back
-        </button>
+        <h4>deleting beer...</h4>
       </div>
     );
   }
