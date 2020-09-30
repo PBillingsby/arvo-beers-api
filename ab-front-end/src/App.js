@@ -17,7 +17,9 @@ class App extends React.Component {
       <>
         <div className="header">
           <header className="beer-background-header pt-3">
-            <h1 className="header text-center">Arvo Beers</h1>
+            <h1 id="header-text" className="header text-center">
+              Arvo Beers
+            </h1>
             <NavBar />
           </header>
         </div>

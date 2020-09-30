@@ -17,6 +17,7 @@ label {
 .header {
   font-family: Raleway;
 }
+
 .beer-background-header {
   height: 20vh;
   background-image: url("./images/beer-logo.png");
@@ -63,6 +64,12 @@ header h1 {
 }
 @media (max-width: 750px) {
   .beerContainer {
-    display: flex;
+    size: 50%;
+  }
+  .beer-background-header {
+    margin: 0 auto !important;
+  }
+  .header {
+    margin-top: 2vh;
   }
 }

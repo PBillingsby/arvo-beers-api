@@ -43,7 +43,7 @@ class BeerForm extends Component {
     return (
       <>
         <form
-          className="row pr-2 mx-auto text-center border border-light"
+          className="row mx-auto text-center border border-light"
           onSubmit={e => {
             this.handleData(e);
           }}
@@ -107,30 +107,25 @@ class BeerForm extends Component {
               placeholder="Notes"
             />
           </div>
-          <div className="col-sm pt-3">
+          <div className="col-md pt-3">
             <p>Rating</p>
             <StarRatingComponent
               name="rating"
-              // className="mb-4"
               starCount={5}
               onStarClick={this.handleRating}
               starColor="white"
               emptyStarColor="black"
             />
 
-            <div className="custom-file">
-              <input
-                type="file"
-                accept="image/png, image/jpeg"
-                name="avatar"
-              ></input>
+            <input
+              className="mt-4 custom-file"
+              type="file"
+              accept="image/png, image/jpeg"
+              name="avatar"
+            ></input>
+            <div className="beerButton pb-3">
+              <input type="submit" />
             </div>
-            <button
-              className="m-2 text-center btn btn-secondary btn-md"
-              type="submit"
-            >
-              Submit
-            </button>
           </div>
         </form>
       </>
