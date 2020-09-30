@@ -24,13 +24,11 @@ export const getBeers = () => {
 
 export const deleteBeer = (id, history) => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/v1/beers/${id}`, {
+    dispatch({ type: "DELETE_BEER", payload: id });
+    fetch(`http://localhost:3001/api/v1/beers/${id}`, {
       method: "DELETE"
-    })
-      .then(dispatch({ type: "DELETE_BEER", payload: id }))
-      .then(beer => {
-        history.push("/");
-      });
+    });
+    window.location.href = "http://localhost:3000/beers";
   };
 };
 export const getFacts = () => {

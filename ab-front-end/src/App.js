@@ -1,26 +1,11 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  withRouter
-} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
-import {
-  addBeer,
-  getBeers,
-  deleteBeer,
-  getFacts,
-  getCountry,
-  getType,
-  getByName
-} from "./actions/beers";
+import * as beerActions from "./actions/beers";
+
 import NavBar from "./presentational/NavBar";
-import Beers from "./container/Beers";
-import BeerShow from "./presentational/BeerShow";
-import NewBeer from "./presentational/NewBeer";
-import Home from "./presentational/Home";
+import Routes from "./presentational/Routes";
 
 class App extends React.Component {
   componentDidMount() {
@@ -37,38 +22,7 @@ class App extends React.Component {
           </header>
         </div>
 
-        <div className="p-3 mb-3 container">
-          <Switch>
-            <Route exact path="/">
-              <Home
-                {...this.props}
-                state={this.props}
-                handleDelete={this.handleDelete}
-              />
-            </Route>
-
-            <Route
-              path="/beers/new"
-              component={e => <NewBeer state={this.props} />}
-            />
-
-            <Route
-              path="/beers/:id"
-              component={e => (
-                <BeerShow
-                  state={this.props}
-                  id={e}
-                  handleDelete={this.handleDelete}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/beers"
-              component={() => <Beers state={this.props} />}
-            />
-          </Switch>
-        </div>
+        <Routes {...this.props} handleDelete={this.props.handleDelete} />
       </>
     );
   }
@@ -78,12 +32,4 @@ const mapStateToProps = state => {
   return state;
 };
 
-export default connect(mapStateToProps, {
-  getBeers,
-  addBeer,
-  deleteBeer,
-  getFacts,
-  getCountry,
-  getType,
-  getByName
-})(withRouter(App));
+export default connect(mapStateToProps, beerActions)(withRouter(App));

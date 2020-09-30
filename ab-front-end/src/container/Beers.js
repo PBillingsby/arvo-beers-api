@@ -23,6 +23,7 @@ export default class Beers extends Component {
     this.props.state.getByName(this.state.query);
   };
 
+  // Add dynamic handling of select box
   setCountryOptions() {
     return <CountrySelect state={this.props.state} />;
   }
@@ -33,6 +34,7 @@ export default class Beers extends Component {
   render() {
     return (
       <>
+        {!this.props.state.beers ? <p>No beers yet</p> : null}
         <form
           onSubmit={this.findByName}
           onChange={this.handleChange}
