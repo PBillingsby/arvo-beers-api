@@ -7,7 +7,6 @@ const Home = props => {
     props.state.beers[Math.floor(Math.random() * props.state.beers.length)];
   let randomFact =
     props.state.facts[Math.floor(Math.random() * props.state.facts.length)];
-
   return (
     <div id="main" className="row p-2">
       <div className="col mx-auto pt-2 main-info card">
@@ -45,10 +44,12 @@ const Home = props => {
           </p>
         </span>
         <p className="text-center">
-          <strong>
-            You have {props.beers.length} beers in your database. Click
-            <a href="/beers"> here</a> to view.
-          </strong>
+          {props.beers.length > 0 && (
+            <strong>
+              You have {props.beers.length} beers in your database. Click
+              <a href="/beers"> here</a> to view.
+            </strong>
+          )}
         </p>
       </div>
 

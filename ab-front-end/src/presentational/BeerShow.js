@@ -26,7 +26,7 @@ const BeerShow = props => {
           src={beer.avatar_url}
           alt="beer"
           className="shadow-lg border rounded"
-          style={{ maxWidth: "20rem" }}
+          style={{ maxWidth: "15rem" }}
         />
         <br />
         <span>{starsArr}</span>
@@ -52,7 +52,7 @@ const BeerShow = props => {
   } else {
     return (
       <div className="text-center">
-        <h4>deleting beer...</h4>
+        <h4>Loading...</h4>
       </div>
     );
   }

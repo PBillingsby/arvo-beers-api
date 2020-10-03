@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import CountrySelect from "../presentational/CountrySelect";
-import TypeSelect from "../presentational/TypeSelect";
+import Select from "../presentational/Select";
 import Beer from "../presentational/Beer";
 export default class Beers extends Component {
   state = {
@@ -11,6 +10,7 @@ export default class Beers extends Component {
     this.setState({ query: e.target.value });
   };
   listByCountry = e => {
+    debugger;
     this.props.state.getCountry(e.target.value);
   };
 
@@ -24,11 +24,8 @@ export default class Beers extends Component {
   };
 
   // Add dynamic handling of select box
-  setCountryOptions() {
-    return <CountrySelect state={this.props.state} />;
-  }
-  setTypeOptions() {
-    return <TypeSelect state={this.props.state} />;
+  setOptions(query) {
+    return <Select state={this.props.state} query={query} />;
   }
 
   render() {
@@ -53,9 +50,9 @@ export default class Beers extends Component {
               Search by country
             </option>
             {this.props.state.beers.length > 0 ? (
-              this.setCountryOptions()
+              this.setOptions("country")
             ) : (
-              <option disabled>No countries yet</option>
+              <option disabled>No beers yet</option>
             )}
           </select>
           <select
@@ -67,9 +64,9 @@ export default class Beers extends Component {
               Search by variety
             </option>
             {this.props.state.beers.length > 0 ? (
-              this.setTypeOptions()
+              this.setOptions("beer_type")
             ) : (
-              <option disabled>No countries yet</option>
+              <option disabled>No beers yet</option>
             )}
           </select>
         </div>
