@@ -64,7 +64,7 @@ export default class Beers extends Component {
               Search by variety
             </option>
             {this.props.state.beers.length > 0 ? (
-              this.setOptions("type")
+              this.setOptions("beer_type")
             ) : (
               <option disabled>No beers yet</option>
             )}
