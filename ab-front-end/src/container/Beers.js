@@ -23,7 +23,6 @@ export default class Beers extends Component {
     this.props.state.getByName(this.state.query);
   };
 
-  // Add dynamic handling of select box
   setOptions(query) {
     return <Select state={this.props.state} query={query} />;
   }

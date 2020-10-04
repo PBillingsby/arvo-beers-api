@@ -12,7 +12,7 @@ const Home = props => {
       <div className="col mx-auto pt-2 main-info card">
         <span>
           <h4 className="text-center">It's time to knock off work</h4>
-          <p>
+          <p className="text-center">
             We've all been there. You finish work after a hard day, pick up a
             beer or 6 on the way home, drink them, like them and then never buy
             them again because you forgot what you were drinking.
@@ -21,7 +21,7 @@ const Home = props => {
 
         <span>
           <h4 className="text-center">Time for that to change</h4>
-          <p>
+          <p className="text-center">
             With Arvo Beers (Australian for afternoon beers), we won't allow you
             to forget. Every time you buy a new beer, upload it here, rate it,
             and give yourself the option to choose your next beer based on
@@ -30,7 +30,7 @@ const Home = props => {
         </span>
         <span>
           <h4 className="text-center">Giving you options</h4>
-          <p>
+          <p className="text-center">
             Arvo Beers allows you to find beers by name, by country of origin,
             and by style. If you want a lager, with the click of a mouse you can
             get all lager beers you've tried.
@@ -38,11 +38,12 @@ const Home = props => {
         </span>
         <span>
           <h4 className="text-center">We'll never be thirsty again</h4>
-          <p>
+          <p className="text-center">
             Theres nothing sweeter than an arvo beer, so keep track of your
             beers, and quench that thirst forever .
           </p>
         </span>
+        <hr />
         <p className="text-center">
           {props.beers.length > 0 && (
             <strong>
@@ -54,7 +55,7 @@ const Home = props => {
       </div>
 
       <div className="col">
-        <h4 className="text-center">Try this</h4>
+        <h4 className="text-center">Random pick</h4>
         {(randomBeer && <Beer beer={randomBeer} />) || (
           <div className="text-center">
             <p>
