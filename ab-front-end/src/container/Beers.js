@@ -10,7 +10,6 @@ export default class Beers extends Component {
     this.setState({ query: e.target.value });
   };
   listByCountry = e => {
-    debugger;
     this.props.state.getCountry(e.target.value);
   };
 
@@ -70,12 +69,24 @@ export default class Beers extends Component {
           </select>
         </div>
 
-        <h1 className="text-center">{this.props.state.selectedText}</h1>
+        <h4 className="text-center">
+          {this.props.state.selectedText && (
+            <p>{this.props.state.selectedText}</p>
+          )}
+        </h4>
 
         <div className="row beerContainer">
-          {this.props.state.selectedBeers.map(beer => (
-            <Beer key={beer.id} handleDelete={this.handleDelete} beer={beer} />
-          ))}
+          {this.props.state.selectedBeers.length > 0 ? (
+            this.props.state.selectedBeers.map(beer => (
+              <Beer
+                key={beer.id}
+                handleDelete={this.handleDelete}
+                beer={beer}
+              />
+            ))
+          ) : (
+            <p className="mx-auto text-center">No beer found</p>
+          )}
         </div>
       </>
     );
