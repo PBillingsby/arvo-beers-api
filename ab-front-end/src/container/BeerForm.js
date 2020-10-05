@@ -57,6 +57,7 @@ class BeerForm extends Component {
               className="form-control"
               name="name"
               placeholder="Beer Name"
+              autocomplete="off"
             />
             <label>Brewery Name</label>
             <input
@@ -65,6 +66,7 @@ class BeerForm extends Component {
               className="form-control"
               name="brewery_name"
               placeholder="Brewery Name"
+              autocomplete="off"
             />
           </div>
 
@@ -76,6 +78,7 @@ class BeerForm extends Component {
               className="form-control"
               name="country"
               placeholder="Brewer Country"
+              autocomplete="off"
             />
             <label>Beer Type</label>
             <input
@@ -84,6 +87,7 @@ class BeerForm extends Component {
               className="form-control"
               name="beer_type"
               placeholder="Beer Type"
+              autocomplete="off"
             />
           </div>
 
@@ -97,6 +101,7 @@ class BeerForm extends Component {
               min="0"
               step="0.1"
               placeholder="%"
+              autocomplete="off"
             />
             <label>Notes</label>
             <input
@@ -105,6 +110,7 @@ class BeerForm extends Component {
               className="form-control"
               name="notes"
               placeholder="Notes"
+              autocomplete="off"
             />
           </div>
           <div className="col-md pt-3">
