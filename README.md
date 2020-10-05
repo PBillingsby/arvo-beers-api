@@ -1,10 +1,9 @@
 ### Installing
 
 To use Arvo-Beers:
-Clone https://github.com/PBillingsby/arvo-beers-api.git
-Run bundle install
-Change directory into ab-back-end & run rails db:migrate & rails db:seed & then run rails s -p 3001
-Change directory into ab-front-end & run npm install && npm start
+Clone https://github.com/PBillingsby/arvo-beers-api.git<br>
+Change directory into ab-back-end & run bundle install & run rails db:migrate & rails db:seed & then run rails s -p 3001<br>
+Change directory into ab-front-end & run npm install && npm start<br>
 
 - [React](https://reactjs.org/) - Javascript library
 - [Redux](https://redux.js.org/) - Javascript library
