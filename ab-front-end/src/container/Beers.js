@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import { getBeers, getByName, getCountry, getType } from "../actions/beers";
 import Select from "../presentational/Select";
 import Beer from "../presentational/Beer";
-export default class Beers extends Component {
+class Beers extends Component {
   state = {
     query: ""
   };
@@ -10,26 +13,26 @@ export default class Beers extends Component {
     this.setState({ query: e.target.value });
   };
   listByCountry = e => {
-    this.props.state.getCountry(e.target.value);
+    this.props.getCountry(e.target.value);
   };
 
   listByType = e => {
-    this.props.state.getType(e.target.value);
+    this.props.getType(e.target.value);
   };
 
   findByName = e => {
     e.preventDefault();
-    this.props.state.getByName(this.state.query);
+    this.props.getByName(this.state.query);
   };
 
   setOptions(query) {
-    return <Select state={this.props.state} query={query} />;
+    return <Select state={this.props} query={query} />;
   }
 
   render() {
     return (
       <>
-        {!this.props.state.beers ? <p>No beers yet</p> : null}
+        {!this.props.beers ? <p>No beers yet</p> : null}
         <form
           onSubmit={this.findByName}
           onChange={this.handleChange}
@@ -47,7 +50,7 @@ export default class Beers extends Component {
             <option value="Search by country" disabled>
               Search by country
             </option>
-            {this.props.state.beers.length > 0 ? (
+            {this.props.beers.length > 0 ? (
               this.setOptions("country")
             ) : (
               <option disabled>No beers yet</option>
@@ -61,7 +64,7 @@ export default class Beers extends Component {
             <option value="Search by variety" disabled>
               Search by variety
             </option>
-            {this.props.state.beers.length > 0 ? (
+            {this.props.beers.length > 0 ? (
               this.setOptions("beer_type")
             ) : (
               <option disabled>No beers yet</option>
@@ -70,17 +73,16 @@ export default class Beers extends Component {
         </div>
 
         <h4 className="text-center">
-          {this.props.state.selectedText && (
-            <p>{this.props.state.selectedText}</p>
-          )}
+          {this.props.selectedText && <p>{this.props.selectedText}</p>}
         </h4>
 
         <div className="row beerContainer">
-          {this.props.state.selectedBeers.length > 0 ? (
-            this.props.state.selectedBeers.map(beer => (
+          {this.props.selectedBeers.length > 0 ? (
+            this.props.selectedBeers.map(beer => (
               <Beer
                 key={beer.id}
                 handleDelete={this.handleDelete}
+                addLike={this.addLike}
                 beer={beer}
               />
             ))
@@ -92,3 +94,13 @@ export default class Beers extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(mapStateToProps, {
+  getBeers,
+  getByName,
+  getCountry,
+  getType
+})(Beers);

@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import BeerForm from "../container/BeerForm";
 
 // PRESENTATIONAL
@@ -9,5 +11,7 @@ const NewBeer = props => {
     </div>
   );
 };
-
-export default NewBeer;
+const mapStateToProps = state => {
+  return state;
+};
+export default connect(mapStateToProps, null)(NewBeer);
