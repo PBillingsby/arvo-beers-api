@@ -7,7 +7,7 @@ export const addBeer = beerData => {
       .then(resp => resp.json())
       .then(beer => {
         dispatch({ type: "ADD_BEER", payload: beer });
-        window.location.href = "http://localhost:3000/beers";
+        // window.location.href = "http://localhost:3000/beers";
       });
   };
 };

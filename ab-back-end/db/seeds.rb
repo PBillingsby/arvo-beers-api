@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 Fact.create(title: 'Beer is the most widely consumed alcoholic drink on the planet.', content: 'Approximately 36% of total recorded alcohol is consumed in the form of beer. Beer consumption is highest in the Region of the Americas.')
 Fact.create(title: 'Around the world, humans consume over 50 billion gallons of beer every year.', content: 'In 2018, the global beer consumption was 188.79 million kiloliters (equivalent to approximately 298.2 billion 633 ml bottles), with an increase of about 1,540,000 kiloliters, which is equivalent to approximately 2.4 billion 633 ml bottles.')
 Fact.create(title: 'The oldest beer brewery dates back to 1040.', content: 'Records indicate hops have been grown in the area since 768, though the earliest official documentation of a brewery only dates back to 1040.')

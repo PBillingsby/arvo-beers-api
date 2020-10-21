@@ -25,6 +25,7 @@ class BeerForm extends Component {
       formData.append("avatar", e.target.avatar.files[0]);
     }
     this.props.state.addBeer(formData);
+    this.props.history.push("/beers");
   };
 
   handleChange = event => {
